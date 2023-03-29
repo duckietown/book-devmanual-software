@@ -1,3 +1,0 @@
-TODO: Download these three images and place them in this folder
-
-https://github.com/duckietown/docs-opmanual_developer/tree/919c136fdcf0dc97ad1b4031142a990590cfc995/book/opmanual_developer/20_modules/images
