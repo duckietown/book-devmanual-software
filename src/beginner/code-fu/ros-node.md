@@ -1,7 +1,7 @@
 (sec:dt_way_nodes)=
 # Structuring ROS Nodes
 
-This section deals with how you should write the code in a ROS node. In particular, how to structure it. Writing the code of a node goes hand-in-hand with documenting it but this will be discussed in more detail in [](#dt_way_code_docs).
+This section deals with how you should write the code in a ROS node. In particular, how to structure it. Writing the code of a node goes hand-in-hand with documenting it, but this will be discussed in more detail in [](sec:dt_way_code_docs).
 
 ## General structure
 
@@ -70,7 +70,7 @@ directory of the package.
 
 ## Node initialization
 
-There are a lot of the details regarding the initialization of the node so let's
+There are a lot of details regarding the initialization of the node so let's
 take a look at an example structure of the `__init__` method of our sample node.
 
 ```python
@@ -137,7 +137,9 @@ network as a graph, where graph nodes represent ROS nodes and graph edges repres
 topics. In such a graph, you might want to group all the nodes working on the `PERCEPTION`
 problem together, say, to clear the clutter and make the graph easier to read.
 Use the parameter `node_type` in the super constructor of your node to do so.
-Use the values from the `NodeType` enumeration. Possible node types are the following,
+Use the values from the `NodeType` enumeration.
+
+Possible node types are the following:
 
 ```python
 GENERIC
@@ -161,10 +163,13 @@ DEBUG
 All parameters should have names relative to the namespace of the node,
 i.e. they should start with `~`.
 Also, all parameters should be in the scope of the instance, not the method,
-so they should always be declared inside the constructor and start with `self.`.
+so they should always be declared inside the constructor and start with `self.  `.
 
+```{attention}
 The parameters should never have default values set in the code.
 All default values should be in the configuration file!
+```
+
 This makes sure that we don't end up in a situation where there are two different
 default values in two different files related to the node.
 
@@ -218,7 +223,9 @@ By doing so, new parameters are added. All the parameters added by `dtros` have 
 Use the values from the `TopicType` enumeration. Possible types list is identical to the
 node types list above.
 
-Note: Only declare a topic type in a `rospy.Publisher` call.
+```{note}
+Only declare a topic type in a `rospy.Publisher` call.
+```
 
 ## Naming of variables and functions
 
@@ -230,7 +237,7 @@ Initalizing publishers and subscribers should again always be in the scope of th
 
 ## Switching nodes on and off
 
-## Custom behavior on shutdown
+### Custom behavior on shutdown
 
 If you need to take care of something before when ROS tries to shut down the node, but before it actually shuts it down, you can implement the `on_shutdown` method. This is useful if you are running threads in the background, there are some files that you need to close, resources to release, or to put the robot into a safe state (e.g. to stop the wheels).
 

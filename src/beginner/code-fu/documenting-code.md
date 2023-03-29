@@ -164,85 +164,81 @@ Included libraries
 
 ```
 
-(+sphinx_style_guide)
-
+(sphinx_style_guide)=
 ## Style guide
 
-You probably noticed the plethora of funky commands in the above examples. These are called _directives_ and we'll now take a closer look at them. The basic style of the documentation comes from reStructuredText, which is the default plaintext markup language used by Sphinx. The rest are Sphinx directives which Sphinx then replaces with markup which it creates from your docstrings.
+You probably noticed the plethora of funky commands in the above examples. These are called _directives_, and we'll now take a closer look at them. The basic style of the documentation comes from reStructuredText, which is the default plaintext markup language used by Sphinx. The rest are Sphinx directives which Sphinx then replaces with markup which it creates from your docstrings.
 
 ### Basic styles
 
-- You can use `*text*` to italize the text.
+- You can use `*text*` to italicize the text.
 - You can use `**text**` to make it in boldface.
 - Values, names of variables, errors, messages, etc. should be in grave accent quotes:
 
-```md
-``like that``
-```
+    ```md
+    ``like that``
+    ```
 
 - Section are created by underlying section title with a punctuation character, at least as long as the text:
 
-```md
-What a cool heading
-===================
+    ```md
+    What a cool heading
+    ===================
 
-Nice subsection
----------------
+    Nice subsection
+    ---------------
 
-A neat subsubsection
-^^^^^^^^^^^^^^^^^^^^
-```
+    A neat subsubsection
+    ^^^^^^^^^^^^^^^^^^^^
+    ```
 
 - External links can be added like this:
 
-```{todo}
-Fix the following thing
-```
-
-```md
-    For this, we use `Picamera <https://picamera.readthedocs.io/>`_ which is an external library.
-```
+    ```md
+        For this, we use `Picamera <https://picamera.readthedocs.io/>`_ which is an external library.
+    ```
 
 - When describing standard types (like `int`, `float`, etc.) use
 
-```md
-:obj:`int`
-```
+    ```md
+    :obj:`int`
+    ```
 
 - If the type is an object of one of the libraries in the repository, then use the referencing directives from the next section in order to create hyperlinks. If it is a message, use the message type. If a list, a dictionary, or a tuple, you can use expressions like `` :obj:`list` of :obj:`float` ``
 
 - Attributes of a class can also be documented. We recommend that you do that for all important attributes and for constants. Here are examples of the various ways you can document attributes:
 
-```python
+    ```python
 
-class Foo:
-    """Docstring for class Foo."""
+    class Foo:
+        """Docstring for class Foo."""
 
-    #: Doc comment for class attribute Foo.bar.
-    #: It can have multiple lines.
-    bar = 1
+        #: Doc comment for class attribute Foo.bar.
+        #: It can have multiple lines.
+        bar = 1
 
-    flox = 1.5   #: Doc comment for Foo.flox. One line only.
+        flox = 1.5   #: Doc comment for Foo.flox. One line only.
 
-    baz = 2
-    """Docstring for class attribute Foo.baz."""
+        baz = 2
+        """Docstring for class attribute Foo.baz."""
 
-    def __init__(self):
-        #: Doc comment for instance attribute qux.
-        self.qux = 3
+        def __init__(self):
+            #: Doc comment for instance attribute qux.
+            self.qux = 3
 
-        self.spam = 4
-        """Docstring for instance attribute spam."""
+            self.spam = 4
+            """Docstring for instance attribute spam."""
 
-```
+    ```
 
+```{seealso}
 You can find more examples with reStructuredText [here](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) and [here](https://docutils.sourceforge.io/docs/user/rst/quickref.html), and detailed specification [here](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html).
-
+```
 ### Referencing other objects
 
 You can add a link to a different package, node, method, or object like that:
 
-```
+```md
     :py:mod:`duckietown`
     :py:class:`duckietown.DTROS`
     :py:meth:`duckietown.DTROS.publisher`
@@ -251,11 +247,13 @@ You can add a link to a different package, node, method, or object like that:
 
 All of these refer to the `duckietown` Python package. When dealing will nodes, things are a bit trickier, because they are not a part of a package. However, in order to make Sphinx work nicely with ROS nodes, we create a fake package that has them all as classes. Hence, if you want to refer to the `CameraNode`, you can do it like that:
 
-```
+```md
     :py:class:`nodes.CameraNode`    
 ```
 
-Note: We are considering replacing `nodes` with the repository name, so keep in mind this  might change soon.
+```{warning}
+We are considering replacing `nodes` with the repository name, so keep in mind this might change soon.
+```
 
 ### Custom sections
 
