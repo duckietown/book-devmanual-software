@@ -1,4 +1,4 @@
-(+part:devel_modules)
+(part:devel_modules)=
 
 # Beginner - Software Modules
 

@@ -1,5 +1,4 @@
-(+sec:devel_modules_intro)
-
+(sec:devel_modules_intro)=
 # Introduction
 
 A software module in Duckietown implements a high level behavior, for example,
@@ -14,9 +13,11 @@ can make a huge difference in the final outcome. Some qualities of the final sof
 product directly affected by this decision are **usability**, **mantainability**,
 and **portability**.
 
-Note: Read the [ISO/IEC 9126](sec:developer_basics_iso_9126) standard
+```{note}
+Read the [ISO/IEC 9126](sec:developer_basics_iso_9126) standard
 to learn more about product quality in software engineering. If you want to become
 a developer, you might want to bookmark that URL, you will need it, **a lot**.
+```
 
 ## What is a module
 
@@ -74,7 +75,8 @@ Since understanding the differences between different templates is outside the s
 this section, we can use any template for the remainder of this section, we suggest
 using the one above.
 
-## Create your own module {#devel_create_module_repo}
+(devel_create_module_repo)=
+## Create your own module
 
 In order to be able to create a Duckietown module, you need to gain access to
 the module template repositories on GitHub.
@@ -88,7 +90,7 @@ a template on your GitHub account by visiting the module template page on GitHub
 and click on the Fork button in the top-right corner of the page.
 
 ```{figure} ../../_images/modules/github_fork_button.jpg
-:width:26em
+:width: 26em
 
 Fork button on GitHub
 ```
@@ -102,7 +104,7 @@ and then choose **New repository**. In the _New repository_ page, choose the tem
 (e.g., `my_module`) as shown in the image below.
 
 ```{figure} ../../_images/modules/github_new_repo_w_template.jpg
-:width:32em
+:width: 32em
 
 New repository with template on GitHub
 ```
@@ -116,7 +118,7 @@ Add link to section here
 ```
 
 Building a module is very simple. To start, open a terminal and clone a module repository
-(we created one in section **TODO** ).
+(we created one in section **TODO**).
 
 Templates leave placeholders that you will need to replace with the proper information
 about your module before you can build it.
@@ -152,7 +154,7 @@ This check is in place to prevent developers from forgetting to push local chang
 If the build is successful, you will see something like the following.
 
 ```{figure} ../../_images/modules/dts_devel_build_ex1.jpg
-:width:36em
+:width: 36em
 
 Result of command `dts devel run`
 ```
@@ -171,12 +173,16 @@ In the example above, look for the line:
 Final image name: duckietown/my_module:v1-amd64
 ```
 
-```{todo}
 ## Hands on
+
+```{todo}
+```
 
 This is a templated subsection
 
 ## Ask the community
 
-This is a templated subsection
+```{todo}
 ```
+
+This is a templated subsection

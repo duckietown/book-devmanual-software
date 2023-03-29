@@ -1,4 +1,4 @@
-(+sec:TEMPLATE_ID)
+(sec:TEMPLATE_ID)=
 
 ```{todo}
 Add templates explanations

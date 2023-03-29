@@ -1,4 +1,4 @@
-(+sec:devel_module_types)
+(sec:devel_module_types)=
 
 # Module Types
 
