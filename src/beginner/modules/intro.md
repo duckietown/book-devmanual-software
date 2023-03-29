@@ -14,14 +14,14 @@ can make a huge difference in the final outcome. Some qualities of the final sof
 product directly affected by this decision are **usability**, **mantainability**,
 and **portability**.
 
-Note: Read the [ISO/IEC 9126](#sec:developer_basics_iso_9126) standard
+Note: Read the [ISO/IEC 9126](sec:developer_basics_iso_9126) standard
 to learn more about product quality in software engineering. If you want to become
 a developer, you might want to bookmark that URL, you will need it, **a lot**.
 
 ## What is a module
 
 A module in Duckietown is a Docker image that complies with a **module template**
-(more about templates in the next section). Remember the [ISO/IEC 9126](#sec:developer_basics_iso_9126) standard? well,
+(more about templates in the next section). Remember the [ISO/IEC 9126](sec:developer_basics_iso_9126) standard? Well,
 modules are designed to be highly **portable** and **usable**.
 
 Modules have a pre-defined file system structure with fixed locations for source code
