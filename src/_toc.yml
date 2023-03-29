@@ -19,6 +19,10 @@ parts:
           - file: beginner/first_python_library/index
           - file: beginner/code_structure/index
           - file: beginner/modules/index
+            sections:
+              - file: beginner/modules/intro
+              - file: beginner/modules/module-types
+              - file: beginner/modules/template
           - file: beginner/code-fu/index
           - file: beginner/development_infrastructure/index
 

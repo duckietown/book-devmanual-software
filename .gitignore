@@ -13,3 +13,6 @@ venv/
 
 # mac
 .DS_Store
+
+#VSCode
+.vscode
