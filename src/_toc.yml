@@ -38,5 +38,8 @@ parts:
       numbered: False
       chapters:
           - file: intermediate/benchmarking/index
+            sections:
+                - file: intermediate/benchmarking/behavior/distance-keeping
+                - file: intermediate/benchmarking/demo/lf
           - file: intermediate/diagnostics/index
           - file: intermediate/simulation/index
