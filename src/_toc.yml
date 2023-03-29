@@ -37,6 +37,5 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: intermediate/benchmarking/index
           - file: intermediate/diagnostics/index
           - file: intermediate/simulation/index
