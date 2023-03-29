@@ -24,6 +24,13 @@ parts:
               - file: beginner/modules/module-types
               - file: beginner/modules/template
           - file: beginner/code-fu/index
+            sections:
+              - file: beginner/code-fu/repository
+              - file: beginner/code-fu/ros-packages
+              - file: beginner/code-fu/ros-node
+              - file: beginner/code-fu/documenting-code
+              - file: beginner/code-fu/building-documentation
+
           - file: beginner/development_infrastructure/index
 
     - caption: Intermediate
