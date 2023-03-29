@@ -1,22 +1,26 @@
-# Documenting your code {#sec:dt_way_code_docs level=sec status=ready}
+(+sec:dt_way_code_docs)
+
+# Documenting your code
 
 This section provides a comprehensive guide to writing inline documentation to your ROS nodes and libraries. We will discuss both _what_ should be documented and _how_ it should be documented. Head to [](#dt_way_build_docs) for the details about how to then create a human-friendly webpage showing the documentation.
 
 ## Basics about inline code documentation
 
-Documentation is a must-do in any software project. As harsh as it sounds, you can write an aboslutely revolutionary and beautiful software package that can save anyone who uses it years of their time while simultaneously solving all of humanity's gratest problems. But if people do not know that your code exists, have no idea how to use it, or understanding its intricacies takes too much effort, then you will neither save anyone any time, nor solve any problem. In fact, as far as the world beyond you is concerned, all your work is as good as if never done. Therefore, if you wish your code to be ever used, __document__ it as extensively as possible!
+Documentation is a must-do in any software project. As harsh as it sounds, you can write an absolutely revolutionary and beautiful software package that can save anyone who uses it years of their time while simultaneously solving all of humanity's greatest problems. But if people do not know that your code exists, have no idea how to use it, or understanding its intricacies takes too much effort, then you will neither save anyone any time, nor solve any problem. In fact, as far as the world beyond you is concerned, all your work is as good as if never done. Therefore, if you wish your code to be ever used, __document__ it as extensively as possible!
 
 Inline documentation is a pretty handy way of helping people use your software. On one hand, it is right in the place where it is needed: next to the classes and methods that you are documenting. On the hand, it is also much easier to update when you change something in the code: the documentation of your function is typically no more than 20 lines above your change. On the third hand (should you have one) documentation written in this way inherits the structure of your software project, which is a very natural way of organizing it. On the fourth hand (you can borrow someone else's), there are some really nice packages that take your documentation and make it into a beautiful webpage.
 
-Note: When we refer to code documentation we mean things like [this](https://docs.duckietown.org/daffy/autodocs/). The documentation that you are currently reading is called _a book_ and exists independent of any code repository.
+```{note}
+When we refer to code documentation we mean things like [this](https://docs.duckietown.org/daffy/autodocs/). The documentation that you are currently reading is called _a book_ and exists independent of any code repository.
+```
 
-In Duckietown we use Sphinx for building our code documentation. Sphinx is the most popular way of creating code documentation for Python projects. You can find out more on [their webpage](https://www.sphinx-doc.org) and there are a lot of interesting things to read there. Documenting your code is as simple as writing docstrings and the occasional comment. Then, Sphinx takes care of parsing all your docstrings and making a nice webpage for it. However, in order for all this to work nicely, you need to formal your documentation in a particular way. We will discuss this later in this page.
+In Duckietown we use Sphinx for building our code documentation. Sphinx is the most popular way of creating code documentation for Python projects. You can find out more on [their webpage](https://www.sphinx-doc.org) and there are a lot of interesting things to read there. Documenting your code is as simple as writing docstrings and the occasional comment. Then, Sphinx takes care of parsing all your docstrings and making a nice webpage for it. However, in order for all this to work nicely, you need to format your documentation in a particular way. We will discuss this later in this page.
 
 ## What should be documented and where?
 
 The short answer to this question is "everything and in the right place". The long answer is the same.
 
-Every ROS node should be documented, meaning a general description of what it is for, what it does, and how it does it. Additionally, all its parameters, publishers, subscribers, and services need to be described. The default values for the parameters should be also added in the documentation. Every method that you node's class has should also be documented, including the arguments to the method and the returned object (if there is such), as well as their types.
+Every ROS node should be documented, meaning a general description of what it is for, what it does, and how it does it. Additionally, all its parameters, publishers, subscribers, and services need to be described. The default values for the parameters should be also added in the documentation. Every method that your node's class has should also be documented, including the arguments to the method and the returned object (if there is such), as well as their types.
 
 Every library in your `include` directory should also be documented. That again means, every class, every method, every function. Additionally, the library itself, and its modules should have a short description too.
 
@@ -101,7 +105,7 @@ class CameraNode(DTROS):
 
 The documentation of the node itself should _always_ be as a docstring after the class definition. _Do not_ put it, or anything else as a docstring for the `__init__` method. This will not be rendered in the final output.
 
-The documentation of the node should start with a general description about the node, its purpose, where it fits in the bigger picture of the package and repository, etc. Feel generous with the description here. Then there is a section with the arguments needed for initializing the node (the arguments of the `__init__` method) which will almost always be exactly the same as shown. After that there is a configuration section where you should put all the parameters for the node, their type, a short description, and their default value, as shown. 
+The documentation of the node should start with a general description about the node, its purpose, where it fits in the bigger picture of the package and repository, etc. Feel generous with the description here. Then there is a section with the arguments needed for initializing the node (the arguments of the `__init__` method) which will almost always be exactly the same as shown. After that there is a configuration section where you should put all the parameters for the node, their type, a short description, and their default value, as shown.
 
 This is then followed by Subscribers, Publishers and Services, in this order. If the node has no Subscribers, for example as the camera node, then you don't need to add this section. Note the specific way of structuring the documentation of the service!
 
@@ -138,9 +142,9 @@ Libraries should be documented in a similar way. However, when documenting libra
 
 You can see that it describes the library and its elements, and then uses the Sphinx commands which will parse these classes and functions and will add their documentation to this page. You can find more details about these functions in [](#sphinx_style_guide).
 
-In a similar way, every ROS package needs a documentation file. This should go in the `docs/packages` directory of your repository and should be named `package_name.rst`. It should describe the package and then should invoke the Sphinx commands for building the documentation for the individual nodes and libraries. See the following example:
+Similarly, every ROS package needs a documentation file. This should go in the `docs/packages` directory of your repository and should be named `package_name.rst`. It should describe the package and then should invoke the Sphinx commands for building the documentation for the individual nodes and libraries. See the following example:
 
-```
+```md
 ROS Package: ground\_projection
 ===============================
 
@@ -161,7 +165,9 @@ Included libraries
 
 ```
 
-## Style guide {#sphinx_style_guide}
+(+sphinx_style_guide)
+
+## Style guide
 
 You probably noticed the plethora of funky commands in the above examples. These are called _directives_ and we'll now take a closer look at them. The basic style of the documentation comes from reStructuredText, which is the default plaintext markup language used by Sphinx. The rest are Sphinx directives which Sphinx then replaces with markup which it creates from your docstrings.
 
@@ -169,15 +175,15 @@ You probably noticed the plethora of funky commands in the above examples. These
 
 - You can use `*text*` to italize the text.
 - You can use `**text**` to make it in boldface.
-- Values, names of variables, errors, messages, etc, should be in grave accent quotes:
+- Values, names of variables, errors, messages, etc. should be in grave accent quotes:
 
-```
+```md
 ``like that``
 ```
 
 - Section are created by underlying section title with a punctuation character, at least as long as the text:
 
-```
+```md
 What a cool heading
 ===================
 
@@ -190,15 +196,17 @@ A neat subsubsection
 
 - External links can be added like this:
 
-TODO: Fix the following thing
-
+```{todo}
+Fix the following thing
 ```
+
+```md
     For this, we use `Picamera <https://picamera.readthedocs.io/>`_ which is an external library.
 ```
 
 - When describing standard types (like `int`, `float`, etc.) use
 
-```
+```md
 :obj:`int`
 ```
 
@@ -206,7 +214,7 @@ TODO: Fix the following thing
 
 - Attributes of a class can also be documented. We recommend that you do that for all important attributes and for constants. Here are examples of the various ways you can document attributes:
 
-```
+```python
 
 class Foo:
     """Docstring for class Foo."""
@@ -242,7 +250,7 @@ You can add a link to a different package, node, method, or object like that:
     :py:attr:`duckietown.DTROS.switch`
 ```
 
-All of these refer to the `duckietown` Python package. When dealing will nodes, things are a bit trickier, because they are not a part of a package. However, in order to make Sphinx work nicely with ROS nodes, we create a fake package that has them all as classes. Hence, if you want to refer to the CameraNode, you can do it like that:
+All of these refer to the `duckietown` Python package. When dealing will nodes, things are a bit trickier, because they are not a part of a package. However, in order to make Sphinx work nicely with ROS nodes, we create a fake package that has them all as classes. Hence, if you want to refer to the `CameraNode`, you can do it like that:
 
 ```
     :py:class:`nodes.CameraNode`    
@@ -254,12 +262,11 @@ Note: We are considering replacing `nodes` with the repository name, so keep in 
 
 When documenting a node, you can (and you should) make use of the following ROS-specific sections: ``Examples``, ``Raises``, ``Configuration``, ``Subscribers``, ``Subscriber``, ``Publishers``, ``Publisher``, ``Services``, ``Service``, ``Fields``, ``inputs``, ``input``, ``outputs``, ``output``. If you need other custom sections you can add them in the `docs/config.yaml` file in your repository.
 
-
 ### Using autodoc
 
 We use the [autodoc extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) of Sphinx in order to automatically create the markup from the docstrings in our Python code. In particular, you can use the following directives:
 
-```
+```md
 
 .. automodule:: ground_projection
 
@@ -272,5 +279,3 @@ We use the [autodoc extension](https://www.sphinx-doc.org/en/master/usage/extens
 ```
 
 You can find more details [here](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
-
-
