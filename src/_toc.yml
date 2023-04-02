@@ -4,21 +4,38 @@
 format: jb-book
 root: intro
 parts:
-    - caption: PART_ONE
+    - caption: Basics
       maxdepth: 2
       numbered: False
       chapters:
-          - file: part_1/chapter_a/index
-            sections:
-                - file: part_1/chapter_a/section_1
-    - caption: PART_TWO
+          - file: basics/terminal/index
+          - file: basics/development/index
+
+    - caption: Beginner
       maxdepth: 2
       numbered: False
       chapters:
-          - file: part_2/chapter_b/index
+          - file: beginner/programs_environments/index
+          - file: beginner/first_python_library/index
+          - file: beginner/code_structure/index
+          - file: beginner/modules/index
             sections:
-                - file: part_2/chapter_b/section_1
-          - file: part_2/chapter_c/index
+              - file: beginner/modules/intro
+              - file: beginner/modules/module-types
+              - file: beginner/modules/template
+          - file: beginner/code-fu/index
             sections:
-                - file: part_2/chapter_c/section_1
-                - file: part_2/chapter_c/section_2
+              - file: beginner/code-fu/repository
+              - file: beginner/code-fu/ros-packages
+              - file: beginner/code-fu/ros-node
+              - file: beginner/code-fu/documenting-code
+              - file: beginner/code-fu/building-documentation
+
+          - file: beginner/development_infrastructure/index
+
+    - caption: Intermediate
+      maxdepth: 2
+      numbered: False
+      chapters:
+          - file: intermediate/diagnostics/index
+          - file: intermediate/simulation/index
