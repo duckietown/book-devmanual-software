@@ -10,6 +10,12 @@ parts:
       chapters:
           - file: basics/terminal/index
           - file: basics/development/index
+            sections:
+              - file: basics/development/iso_iec9126
+              - file: basics/development/linux
+              - file: basics/development/git
+              - file: basics/development/docker
+              - file: basics/development/duckietown_shell
 
     - caption: Beginner
       maxdepth: 2
