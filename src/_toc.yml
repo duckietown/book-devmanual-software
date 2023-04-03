@@ -28,4 +28,8 @@ parts:
       chapters:
           - file: intermediate/benchmarking/index
           - file: intermediate/diagnostics/index
+            sections:
+              - file: intermediate/diagnostics/intro
+              - file: intermediate/diagnostics/get_started
+              - file: intermediate/diagnostics/reference
           - file: intermediate/simulation/index
