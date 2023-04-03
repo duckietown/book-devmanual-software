@@ -16,6 +16,11 @@ parts:
       numbered: False
       chapters:
           - file: beginner/programs_environments/index
+            sections:
+              - file: beginner/programs_environments/02_python_01_programs_and_environments
+              - file: beginner/programs_environments/02_python_02_run_basic
+              - file: beginner/programs_environments/02_python_03_run_duckiebot
+              - file: beginner/programs_environments/02_python_04_apt_pip
           - file: beginner/first_python_library/index
           - file: beginner/code_structure/index
           - file: beginner/modules/index
