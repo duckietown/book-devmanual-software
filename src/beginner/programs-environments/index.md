@@ -11,14 +11,6 @@
 * Knowledge: how to run a Duckietown compliant Docker image on Duckietown robots
 ```
 
-
-```{needget}
-* [Laptop setup](+opmanual_duckiebot#laptop-setup)
-* Basic knowledge of Python
----
-* Developer knowledge of Python
-```
-
 We assume you are already quite comfortable with Python. Nevertheless, when you work with big and complex projects, there are some subtleties that you must consider and some handy tools that can make your life easier. Let's take a look at some of these now.
 
 (python-project-basics)=
