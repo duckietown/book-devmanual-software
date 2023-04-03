@@ -11,24 +11,23 @@ parts:
           - file: basics/terminal/index
           - file: basics/development/index
             sections:
-              - file: basics/development/iso_iec9126
+              - file: basics/development/iso-iec9126
               - file: basics/development/linux
               - file: basics/development/git
               - file: basics/development/docker
-              - file: basics/development/duckietown_shell
+              - file: basics/development/duckietown-shell
 
     - caption: Beginner
       maxdepth: 2
       numbered: False
       chapters:
-          - file: beginner/programs_environments/index
-          - file: beginner/first_python_library/index
-          - file: beginner/code_structure/index
+          - file: beginner/programs-environments/index
+          - file: beginner/first-python-library/index
+          - file: beginner/code-structure/index
           - file: beginner/modules/index
             sections:
               - file: beginner/modules/intro
               - file: beginner/modules/module-types
-              - file: beginner/modules/template
           - file: beginner/code-fu/index
             sections:
               - file: beginner/code-fu/repository
@@ -37,7 +36,7 @@ parts:
               - file: beginner/code-fu/documenting-code
               - file: beginner/code-fu/building-documentation
 
-          - file: beginner/development_infrastructure/index
+          - file: beginner/development-infrastructure/index
 
     - caption: Intermediate
       maxdepth: 2
@@ -46,6 +45,6 @@ parts:
           - file: intermediate/diagnostics/index
             sections:
               - file: intermediate/diagnostics/intro
-              - file: intermediate/diagnostics/get_started
+              - file: intermediate/diagnostics/get-started
               - file: intermediate/diagnostics/reference
           - file: intermediate/simulation/index
