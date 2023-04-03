@@ -25,7 +25,7 @@ tool.
 :::{list-table} Options available to the command `dts diagnostics run`
 :header-rows: 1
 :name: tab:devel_sw_diagnostics_dts_diag_run_options
-:widths: 20, 20, 60
+:widths: 15, 15, 70
 
 * - Argument
   - Type
