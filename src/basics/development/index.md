@@ -1,5 +1,10 @@
+(part:developer_basics)=
 # Basics - Development
 
-```{todo}
-Populate this
+This section of the book will introduce the basics of software
+development in Duckietown. The arguments presented in this section
+are very general and should be clear to any developer (not just in
+Duckietown).
+
+```{tableofcontents}
 ```
