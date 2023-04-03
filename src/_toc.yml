@@ -22,6 +22,10 @@ parts:
       numbered: False
       chapters:
           - file: beginner/programs-environments/index
+            sections:
+                - file: beginner/programs-environments/run-local
+                - file: beginner/programs-environments/run-remote
+                - file: beginner/programs-environments/dependencies
           - file: beginner/first-python-library/index
           - file: beginner/code-structure/index
           - file: beginner/modules/index
