@@ -1,5 +1,5 @@
 (sec:developer_basics_iso_9126)=
-# Developer Basics: ISO/IEC 9126
+# ISO/IEC 9126
 
 ISO/IEC 9126 is a international standard for product quality in Software
 Engineering. It was officially replaced by the new ISO/IEC 25010 in 2011

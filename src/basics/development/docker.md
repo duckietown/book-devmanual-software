@@ -1,5 +1,5 @@
 (sec:developer_basics_docker)=
-# Developer Basics: Docker
+# Docker
 
 This section will introduce Docker and the features of Docker that the
 Duckietown community employs. For a more general introduction to Docker, 

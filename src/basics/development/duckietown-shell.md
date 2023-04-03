@@ -1,5 +1,5 @@
 (sec:developer_basics_dts)=
-# Developer Basics: Duckietown Shell
+# Duckietown Shell
 
 This section of the book will introduce the Duckietown Shell 
 (`dts` in short) and the reason behind its creation.

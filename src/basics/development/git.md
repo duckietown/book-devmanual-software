@@ -1,5 +1,5 @@
 (sec:developer_basics_git)=
-# Developer Basics: Git
+# Git
 
 Every time there is a large project, with many contributors and
 the need for code versioning and history, developers rely on VCS

@@ -1,5 +1,5 @@
 (sec:developer_basics_linux)=
-# Developer Basics: Linux
+# Linux
 
 This section of the book will introduce Linux distributions and specifically
 the Ubuntu distribution. We will provide guides for installing Ubuntu in 
