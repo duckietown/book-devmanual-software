@@ -177,7 +177,16 @@ In order to get GPU acceleration, you should install and use [nvidia-docker](htt
 
 ### Map File Format
 
-The simulator supports a YAML-based file format which is designed to be easy to hand edit. See the [maps subdirectory](https://github.com/duckietown/gym-duckietown/blob/master/gym_duckietown/maps) for examples. Each map file has two main sections: a two-dimensional array of tiles, and a listing of objects to be placed around the map. The tiles are based on the [Duckietown appearance specification](https://docs.duckietown.org/daffy/opmanual_duckietown/out/duckietown_specs.html).
+The simulator supports a YAML-based file format which is designed to be easy to hand edit. 
+See the [maps subdirectory](https://github.com/duckietown/gym-duckietown/blob/master/gym_duckietown/maps) 
+for examples. Each map file has two main sections: a two-dimensional array of tiles, 
+and a listing of objects to be placed around the map. 
+The tiles are based on the 
+[Duckietown appearance specification](https://docs-old.duckietown.org/daffy/opmanual_duckietown/out/duckietown_specs.html).
+
+```{todo}
+absolute URL here
+```
 
 The available tile types are:
 

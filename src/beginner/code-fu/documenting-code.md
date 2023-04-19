@@ -10,7 +10,7 @@ Documentation is a must-do in any software project. As harsh as it sounds, you c
 Inline documentation is a pretty handy way of helping people use your software. On one hand, it is right in the place where it is needed: next to the classes and methods that you are documenting. On the hand, it is also much easier to update when you change something in the code: the documentation of your function is typically no more than 20 lines above your change. On the third hand (should you have one) documentation written in this way inherits the structure of your software project, which is a very natural way of organizing it. On the fourth hand (you can borrow someone else's), there are some really nice packages that take your documentation and make it into a beautiful webpage.
 
 ```{note}
-When we refer to code documentation we mean things like [this](https://docs.duckietown.org/daffy/autodocs/). The documentation that you are currently reading is called _a book_ and exists independent of any code repository.
+The documentation that you are currently reading is called _a book_ and exists independent of any code repository.
 ```
 
 In Duckietown we use Sphinx for building our code documentation. Sphinx is the most popular way of creating code documentation for Python projects. You can find out more on [their webpage](https://www.sphinx-doc.org) and there are a lot of interesting things to read there. Documenting your code is as simple as writing docstrings and the occasional comment. Then, Sphinx takes care of parsing all your docstrings and making a nice webpage for it. However, in order for all this to work nicely, you need to format your documentation in a particular way. We will discuss this later in this page.
