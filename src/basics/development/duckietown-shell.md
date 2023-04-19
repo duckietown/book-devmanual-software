@@ -45,7 +45,7 @@ on. You can do so by running the command,
     dts --set-version ![DISTRO]
     
 where `![DISTRO]` can be any of the official distributions of Duckietown
-software, e.g., `master19`, `daffy`.
+software, e.g., `daffy`, `ente`.
 This will download the commands for the given distribution before the command
 prompt is shown.
 

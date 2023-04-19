@@ -100,13 +100,13 @@ The parts `repository` and `tag` are optional and they default to
 tag always pointing to the _latest_ version of an image).
 For example, the Duckietown Docker image
 
-    duckietown/dt-core:daffy-arm32v7
+    duckietown/dt-core:ente-arm64v8
 
 has the repository name `duckietown`, 
 the image name `dt-core`, 
-and the tag `daffy-arm32v7`, which carries both the name of the 
-Duckietown software distribution that the image contains, i.e., `daffy`,
-and the CPU architecture that this image is targeting, i.e., `arm32v7`.
+and the tag `ente-arm64v8`, which carries both the name of the 
+Duckietown software distribution that the image contains, i.e., `ente`,
+and the CPU architecture that this image is targeting, i.e., `arm64v8`.
 We will talk about different CPU architectures and why they need to be
 part of the Docker image tag in the section [](#basic-docker-arch).
 

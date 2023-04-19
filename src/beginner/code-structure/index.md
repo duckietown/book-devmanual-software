@@ -31,9 +31,9 @@ The Docker image hierarchy
 
 As you can see in the above image, all three of the containers actually inherit the same container. Recall that 'inheritance' in a Docker images means that the 'child' image has a `FROM` statement with the 'parent' image in its Dockerfile. We typically say that the 'child' _is based on_ 'the parent'.
 
-The image on which everything is based is `ubuntu`. It is simply the official Ubuntu image, with no added perks. Ubuntu 20.04 (Focal) is used for the `daffy` version of the Duckietown stack. Of course, as you can imagine, it is missing many key features that we would need. Also, it needs to be properly configured in order to work correctly with our software.
+The image on which everything is based is `ubuntu`. It is simply the official Ubuntu image, with no added perks. Ubuntu 22.04 (Jammy Jellyfish) is used for the `ente` distribution of the Duckietown stack. Of course, as you can imagine, it is missing many key features that we would need. Also, it needs to be properly configured in order to work correctly with our software.
 
-The `duckietown/dt-base-environment` adds many of the core libraries and configurations that we need. It installs development tools such as `vim`, `git`, `nano` and libraries for handling `i2c` devices, processing images, and efficiently doing linear algebra. It adds compilers, linkers, and libraries necessary for the compiling/building of software from source. Furthermore, we add `pip` and a bunch of handy `python3` libraries, such as `numpy`, `scipy`, `matplotlib`, and `smbus` (used to communicate with motors, LEDs, etc). Finally, `duckietown/dt-base-environment` also provides the core ROS libraries, including `rospy`: ROS's Python bindings. The version of `ROS` used for the `daffy` version of the Duckietown stack is [ROS Noetic Ninjemys](http://wiki.ros.org/noetic).
+The `duckietown/dt-base-environment` adds many of the core libraries and configurations that we need. It installs development tools such as `vim`, `git`, `nano` and libraries for handling `i2c` devices, processing images, and efficiently doing linear algebra. It adds compilers, linkers, and libraries necessary for the compiling/building of software from source. Furthermore, we add `pip` and a bunch of handy `python3` libraries, such as `numpy`, `scipy`, `matplotlib`, and `smbus` (used to communicate with motors, LEDs, etc). Finally, `duckietown/dt-base-environment` also provides the core ROS libraries, including `rospy`: ROS's Python bindings. The version of `ROS` used is [ROS Noetic Ninjemys](http://wiki.ros.org/noetic).
 
 Then, `duckietown/dt-commons` builds on top of `duckietown/dt-base-environment`. We provide a number of Duckietown libraries here that deal with files handling, infrastructure communication, and everything else that makes our development tools run smoothly. This image configures the environment so that the hostname resolution is correctly performed also, and ensures that the environment variables pertaining to the type of the robot, its hardware, and its configuration are all properly set. It also makes sure that all Python libraries are discoverable, and that ROS is setup correctly.
 
@@ -57,24 +57,24 @@ The `dt-core` image provides all the high level robot behavior that you observe 
 
 If you are curious to see all the ROS packages available in each of these images, you can check out the corresponding GitHub repositories:
 
-- [`dt-base-environment`](https://github.com/duckietown/dt-base-environment/tree/daffy)
+- [`dt-base-environment`](https://github.com/duckietown/dt-base-environment/tree/ente)
 
-- [`dt-commons`](https://github.com/duckietown/dt-commons/tree/daffy)
+- [`dt-commons`](https://github.com/duckietown/dt-commons/tree/ente)
 
-- [`dt-ros-commons`](https://github.com/duckietown/dt-ros-commons/tree/daffy)
+- [`dt-ros-commons`](https://github.com/duckietown/dt-ros-commons/tree/ente)
 
-- [`dt-duckiebot-interface`](https://github.com/duckietown/dt-duckiebot-interface/tree/daffy)
+- [`dt-duckiebot-interface`](https://github.com/duckietown/dt-duckiebot-interface/tree/ente)
 
-- [`dt-car-interface`](https://github.com/duckietown/dt-car-interface/tree/daffy)
+- [`dt-car-interface`](https://github.com/duckietown/dt-car-interface/tree/ente)
 
-- [`dt-core`](https://github.com/duckietown/dt-core/tree/daffy)
+- [`dt-core`](https://github.com/duckietown/dt-core/tree/ente)
 
 ```{note}
-Make sure to look at the `daffy` branches of these repositories! This is the most current release of the Duckietown 
+Make sure to look at the `ente` branches of these repositories! This is the most current release of the Duckietown 
 software.
 ```
 
-As you will see in the nodes, there's a lot of inline documentation provided. You can also access in the 'Code documentation' section [here](https://docs.duckietown.org/daffy/) in a more readable form.
+As you will see in the nodes, there's a lot of inline documentation provided.
 
 ```{warning}
 Unfortunately, for the moment only `dt-ros-commons`, `dt-duckiebot-interface`, and `dt-car-interface` are 
