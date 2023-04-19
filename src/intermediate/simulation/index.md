@@ -59,6 +59,10 @@ installed):
     $ source dt-sim/bin/activate
     $ pip3 install duckietown-gym-daffy
 
+```{todo}
+reference to daffy library above
+```
+
 Now you need to create a simple python script with uses the gym-duckietown API 
 to connect to the simulator, the API is very simple as you will see.
 
