@@ -1,5 +1,5 @@
 (dt-infrastructure)=
-# Beginner - Development Infrastructure
+# Beginner - Use ROS
 
 ```{needget}
 * A laptop set up with the [Duckietown software requirements](book-opmanual-duckiebot:laptop-setup)
@@ -26,7 +26,7 @@ Click on the green button that says "Use this template".
 
 This will take you to a page that looks like the following:
 
-```{figure} ../../_images/beginner/create_a_repo_2.png
+```{figure} ../../_images/beginner/create_a_repo.png
 :name: create-repo
 ```
 
@@ -72,7 +72,7 @@ If the above command is not recognized, you will first have to install it with `
 If you correctly installed Docker and the *duckietown-shell*, you should see a long log that ends with something like 
 the following:
 
-```{figure} ../../_images/beginner/docker_build.png
+```{figure} ../../_images/beginner/dts_devel_build.png
 :name: docker-build
 ```
 

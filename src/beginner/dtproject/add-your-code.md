@@ -1,13 +1,13 @@
-(program-basics-run)=
-# Run on your Computer
+(dtproject-add-your-code)=
+# Add your code
 
-Now that we know how to build Docker images for Duckietown, let's put some code in one of them.
+Now that we know how to build Docker images for Duckietown, let's build one with some custom code inside.
 
-We will see how to write a simple Python program, but any language should do it.
+We will now see how to write a simple Python program, but any programming language should do it.
 
 Open a terminal and go to the directory `my-program` created in the previous page.
 In Duckietown, Python code must belong to a Python package. 
-Python packages are placed inside the directory `packages/` you find at the root of `my-program`. 
+Python packages are placed inside the directory `packages/` you can find at the root of `my-program`. 
 Let us go ahead and create a directory called `my_package` inside `packages/`.
 
     mkdir -p ./packages/my_package
@@ -18,12 +18,12 @@ So, let us turn that `my_package` into a Python package.
     touch ./packages/my_package/__init__.py
 
 Now that we have a Python package, we can create a Python script in it. 
-Use your favorite text editor to create the file `./packages/my_package/my_script.py` and 
+Use your favorite text editor or IDE to create the file `./packages/my_package/my_script.py` and 
 place the following code inside it.
 
 
 ```python
-message = "Hello World!"
+message = "\nHello World!\n"
 print(message)
 ```
 
@@ -43,14 +43,13 @@ dt-exec python3 -m "my_package.my_script"
 ```{note}
 Always prepend `dt-exec` to the main command in `./launchers/default.sh`.
 
-If you are curious about why that is important, we can tell you that it helps us deal with an interesting problem
-called "The zombie reaping problem" (more about this in this [article][article]).
+Using `dt-exec` helps us deal with an interesting problem called "The zombie reaping problem" 
+(more about this in this [article][article]).
 
 [article]: https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
 ```
-
  
-You can also create different custom executable scripts, if you want to know more about that check out the file ./readme.md.    
+You can also create more launcher scripts. To know more about that, check out the page [](dtproject-launchers).    
  
 Let us now re-build the image:
 
@@ -63,16 +62,18 @@ and run it:
 This will show the following message:
 
 ```
-The environment variable VEHICLE_NAME is not set. Using '774a2521b42e'.
-Adding /code/my-program to PYTHONPATH
-Adding /code/dt-commons to PYTHONPATH
-Activating services broadcast...
-Done!
+==> Entrypoint
+   INFO: The environment variable VEHICLE_NAME is not set. Using '...'.
+   WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
+   WARNING: robot_configuration file does not exist.
+   INFO: Network configured successfully.
+<== Entrypoint
+==> Launching app...
 
 Hello World!
 
-Deactivating services broadcast...
-Done!
+<== App terminated!
 ```
 
-Congratulations! You just built and run your own Duckietown-compliant Docker image.
+**Congratulations!** 
+You just built and run your own Duckietown-compliant Docker image.

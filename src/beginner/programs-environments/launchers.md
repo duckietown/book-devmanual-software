@@ -1,3 +1,0 @@
-(program-basics-launchers)=
-# Launchers
-
