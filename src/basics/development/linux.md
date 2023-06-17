@@ -17,7 +17,7 @@ Ubuntu is the Linux distribution officially supported by the Duckietown communit
 ## Ubuntu
 
 As of this writing, the most recent version of Ubuntu is 22.04 LTS (Long Term Service) 
-which will be supported until April 2032. Ubuntu 22.04+ versions should also be fine.
+which will be supported until April 2032.
 
 
 ## Installation
