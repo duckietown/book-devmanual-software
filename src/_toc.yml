@@ -21,17 +21,21 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: beginner/programs-environments/index
+          - file: beginner/dtproject/index
             sections:
-                - file: beginner/programs-environments/run-local
-                - file: beginner/programs-environments/run-remote
-                - file: beginner/programs-environments/dependencies
+                - file: beginner/dtproject/create-project
+                - file: beginner/dtproject/add-your-code
+                - file: beginner/dtproject/dependencies
+                - file: beginner/dtproject/run-on-robot
+                - file: beginner/dtproject/launchers
+                - file: beginner/dtproject/templates
+
+          - file: beginner/ros/index
+
           - file: beginner/first-python-library/index
+
           - file: beginner/code-structure/index
-          - file: beginner/modules/index
-            sections:
-              - file: beginner/modules/intro
-              - file: beginner/modules/module-types
+
           - file: beginner/code-fu/index
             sections:
               - file: beginner/code-fu/repository
@@ -39,8 +43,6 @@ parts:
               - file: beginner/code-fu/ros-node
               - file: beginner/code-fu/documenting-code
               - file: beginner/code-fu/building-documentation
-
-          - file: beginner/development-infrastructure/index
 
     - caption: Intermediate
       maxdepth: 2

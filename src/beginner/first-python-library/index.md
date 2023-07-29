@@ -16,7 +16,7 @@ The repository contains a lot of files, but do not worry, we will analyze them o
 
 This will take you to a page that looks like the following:
 
-```{figure} ../../_images/beginner/create_a_repo_2.png
+```{figure} ../../_images/beginner/create_a_repo.png
 :name: create-repo
 ```
 
