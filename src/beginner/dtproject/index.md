@@ -38,7 +38,7 @@ executable Docker image before it can be executed.
 Understanding the pros and cons of forcing code to only run inside Docker containers right 
 now is crucial.
 
-_Bad news first!_ The biggest negative effect of using Docker to isolate the execution of our code
+_Bad news first!_ The biggest downside of using Docker to isolate the execution of our code
 is that by doing so, we are wrapping our source code inside a Docker image. This
 makes it harder for us to do development, since our code will not be easily accessible
 through our local file system. This is what scares/frustrates people away from Docker
@@ -54,7 +54,7 @@ go.
 
 ## Structure of a DTProject
 
-DTProjects have an agreed-upon file system structure with known locations for source code, 
+DTProjects have an agreed-upon files structure with known locations for source code, 
 configuration files, dependencies lists, etc. 
 
 ### Meta-files

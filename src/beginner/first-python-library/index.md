@@ -8,16 +8,24 @@ In this section, you will create your own Python library following the Duckietow
 
 A boilerplate is provided by the [library template repository](https://github.com/duckietown/template-library).
 
-The repository contains a lot of files, but do not worry, we will analyze them one by one. Click on the green button that says "Use this template".
+The repository contains a lot of files, but do not worry, we will analyze them one by one.
+Click on the button that reads "Use this template" and then choose
+"Create a new repository" from the dropdown menu.
 
-```{figure} ../../_images/beginner/use_this_template.png
-:name: use-this-template
+```{figure} ../../_images/beginner/github_use_template.jpg
+:width: 70%
+:name: fig:library-github-use-template
+
+Use template repository on GitHub.
 ```
 
 This will take you to a page that looks like the following:
 
-```{figure} ../../_images/beginner/create_a_repo.png
-:name: create-repo
+```{figure} ../../_images/beginner/library/create-repo-from-template.png
+:width: 90%
+:name: fig:library-create-repo-from-template
+
+Creating a repository from template.
 ```
 
 Pick a name for your repository (say `my-library`) and press the button *Create repository from template*.

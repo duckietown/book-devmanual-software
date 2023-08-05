@@ -20,22 +20,23 @@ repository.
 
 Visit the template repository page
 [duckietown/template-basic](https://github.com/duckietown/template-basic/).
-Click on the button that reads "Use this template".
+Click on the button that reads "Use this template" and then choose 
+"Create a new repository" from the dropdown menu.
 
-```{figure} ../../_images/beginner/use_this_template.png
+```{figure} ../../_images/beginner/github_use_template.jpg
 :width: 70%
-:name: fig:prog-env-template
+:name: fig:basic-github-use-template
 
-Use this template.
+Use template repository on GitHub.
 ```
 
 This will take you to a page that looks like the following:
 
-```{figure} ../../_images/beginner/create_a_repo.png
+```{figure} ../../_images/beginner/basic/create-repo-from-template.png
 :width: 90%
-:name: fig:prog-env-create-repo
+:name: fig:basic-create-repo-from-template
 
-Creating a repository.
+Creating a repository from template.
 ```
 
 Pick a name for your repository (say `my-program`) and press the button *Create repository from template*. 
@@ -52,7 +53,7 @@ new repository. You can now open a terminal and clone your newly created reposit
 Replace `YOUR_NAME` in the link above with your GitHub username.
 ```
 
-
+(dtproject-edit-placeholders)=
 ## Edit placeholders
 
 The repository contains already everything you need to create a Duckietown-compliant Docker image 
@@ -76,6 +77,7 @@ Save the changes. We can now build the image, even though there is not going to 
 inside it until we place our code in it.
 
 
+(dtproject-build-project)=
 ## Build the project
 
 Now, in a terminal, move to the directory created by the `git clone` instruction above and run the 
@@ -106,7 +108,7 @@ In the example above, look for the line:
 Final image name: duckietown/my-program:v1-amd64
 ```
 
-
+(dtproject-run-project)=
 ## Run the project
 
 You can now run your container by executing the following command.
