@@ -31,6 +31,15 @@ parts:
                 - file: beginner/dtproject/templates
 
           - file: beginner/ros/index
+            sections:
+                - file: beginner/ros/create-project
+                - file: beginner/ros/catkin-packages
+                - file: beginner/ros/publisher
+                - file: beginner/ros/subscriber
+                - file: beginner/ros/launch-files
+                - file: beginner/ros/namespace-remapping
+                - file: beginner/ros/cli
+                - file: beginner/ros/gui
 
           - file: beginner/first-python-library/index
 
