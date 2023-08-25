@@ -17,7 +17,7 @@ Click on the button that reads "Use this template" and then choose
 "Create a new repository" from the dropdown menu.
 
 ```{figure} ../../_images/beginner/github_use_template.jpg
-:width: 70%
+:width: 60%
 :name: fig:ros-github-use-template
 
 Use template repository on GitHub.
@@ -88,7 +88,7 @@ image at the end of the output of the `dts devel build` command.
 In this case, look for the line:
 
 ```sh
-Final image name: duckietown/my-ros-project:v4-amd64
+Final image name: duckietown/my-ros-project:v2-amd64
 ```
 
 
@@ -101,18 +101,13 @@ Again, as in [](dtproject-run-project), we can run our project by executing the 
 This will show the following message:
 
 ```
-==> Entrypoint
-   INFO: The environment variable VEHICLE_NAME is not set. Using '...'.
-   WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
-   WARNING: robot_configuration file does not exist.
-   INFO: Network configured successfully.
-<== Entrypoint
+...
 ==> Launching app...
 This is an empty launch script. Update it to launch your application.
 <== App terminated!
 ```
 
 
-```{admonition} CONGRATULATIONS 🎉
+```{admonition} Congratulations 🎉
 You just built and run your first ROS-based Duckietown-compliant Docker image.
 ```

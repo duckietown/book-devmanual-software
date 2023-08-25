@@ -36,27 +36,25 @@ parts:
                 - file: beginner/ros/catkin-packages
                 - file: beginner/ros/publisher
                 - file: beginner/ros/subscriber
-                - file: beginner/ros/launch-files
-                - file: beginner/ros/namespace-remapping
-                - file: beginner/ros/cli
-                - file: beginner/ros/gui
+#                - file: beginner/ros/launch-files
+#                - file: beginner/ros/namespace-remapping
+#                - file: beginner/ros/cli
+#                - file: beginner/ros/gui
 
           - file: beginner/first-python-library/index
 
-          - file: beginner/code-structure/index
+          - file: beginner/code-hierarchy/index
 
-          - file: beginner/code-fu/index
+          - file: beginner/documentation/index
             sections:
-              - file: beginner/code-fu/repository
-              - file: beginner/code-fu/ros-packages
-              - file: beginner/code-fu/ros-node
-              - file: beginner/code-fu/documenting-code
-              - file: beginner/code-fu/building-documentation
+                - file: beginner/documentation/write
+                - file: beginner/documentation/build
 
     - caption: Intermediate
       maxdepth: 2
       numbered: False
       chapters:
+          - file: intermediate/dtros/index
           - file: intermediate/diagnostics/index
             sections:
               - file: intermediate/diagnostics/intro

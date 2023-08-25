@@ -1,13 +1,12 @@
 (dtproject-add-your-code)=
 # Add your code
 
-Now that we know how to build Docker images for Duckietown, let's build one with some custom code inside.
+Now that we know how to build Docker images for Duckietown, 
+let's build one with a simple Python program inside.
 
-We will now see how to write a simple Python program, but any programming language should do it.
-
-Open a terminal and go to the directory `my-program` created in the previous page.
+Open a terminal and go to the directory `my-project` created in the previous page.
 In Duckietown, Python code must belong to a Python package. 
-Python packages are placed inside the directory `packages/` you can find at the root of `my-program`. 
+Python packages are placed inside the directory `packages/` you can find at the root of `my-project`. 
 Let us go ahead and create a directory called `my_package` inside `packages/`.
 
     mkdir -p ./packages/my_package
@@ -62,12 +61,7 @@ and run it:
 This will show the following message:
 
 ```
-==> Entrypoint
-   INFO: The environment variable VEHICLE_NAME is not set. Using '...'.
-   WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
-   WARNING: robot_configuration file does not exist.
-   INFO: Network configured successfully.
-<== Entrypoint
+...
 ==> Launching app...
 
 Hello World!
@@ -75,5 +69,6 @@ Hello World!
 <== App terminated!
 ```
 
-**Congratulations!** 
+```{admonition} Congratulations 🎉
 You just built and run your own Duckietown-compliant Docker image.
+```

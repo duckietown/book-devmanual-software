@@ -1,4 +1,4 @@
-(ros-project-catkin-packages)=
+(ros-catkin-packages)=
 # Catkin Packages
 
 ```{needget}
@@ -22,9 +22,10 @@ called
 ROS implements the `publish-subscribe` pattern using **ROS Publishers** and **ROS Subscribers**, and the
 `request-reply` pattern using **ROS Services**. More on these later.
 
-Let us now take a step back. 
+Let us now take a step back and review catkin workspaces, packages, and nodes more in details.
 
 
+(ros-catkin-workspace)=
 ## Catkin workspace
 
 The directory `packages/` you find at the root of a DTProject is a catkin workspace.
@@ -37,10 +38,11 @@ directories from other projects (the ancestor projects) to form a full catkin wo
 ````
 
 
+(ros-catkin-package-create)=
 ## Create a new Catkin package
 
 Open a terminal at the root of the DTProject `my-ros-project` created earlier. 
-Catkin packages are placed inside the directory `packages/` of `my-ros-project`. 
+Again, Catkin packages are directories inside the directory `packages/` of `my-ros-project`. 
 Let us go ahead and create a new directory called `my_package` inside `packages/`.
 
     mkdir -p ./packages/my_package
@@ -68,6 +70,7 @@ place/adjust the following content inside it:
 
 Replace `YOUR_FULL_NAME` with your first and last name and `YOUR_EMAIL@EXAMPLE.COM` with your email address.
 
+---
 
 Now, create the file `CMakeLists.txt` inside `my_package` using your favorite text editor and 
 place/adjust the following content inside it:

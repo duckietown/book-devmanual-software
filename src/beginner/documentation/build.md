@@ -1,5 +1,5 @@
 (sec:dt_way_build_docs)=
-# Building the documentation of your code
+# Build documentation
 
 You can write a Jupyter Book to document your project. The book source code is located in `/docs/src` and you can refer to the [Book Writer Manual](duckumentation-intro) for details on the supported features and a syntax cheat sheet.
 

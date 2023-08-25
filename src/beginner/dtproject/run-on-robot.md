@@ -37,18 +37,16 @@ Once the image is built, we can run it on the robot by running the command
 If everything worked as expected, you should see the following output,
 
 ```
-==> Entrypoint
-   INFO: The environment variable VEHICLE_NAME is not set. Using 'ROBOT_NAME'.
-   INFO: Network configured successfully.
-<== Entrypoint
+...
 ==> Launching app...
 
 Hello from ROBOT_NAME!
 
-<== 
+<== App terminated!
 ```
 
 
-**Congratulations!** 
+```{admonition} Congratulations 🎉
 You just built and run your first Duckietown-compliant and Duckiebot-compatible Docker image.
 We are sure this is just the first of many!
+```

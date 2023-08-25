@@ -1,5 +1,5 @@
-(duckietown-code-structure)=
-# Beginner - Code Structure
+(code-hierarchy)=
+# Beginner - Code Hierarchy
 
 ```{needget}
 * An understanding of the basics of [Docker](book-opmanual-duckiebot:preliminaries-docker-basics)
@@ -14,7 +14,7 @@ delve deeper.
 
 While on the outside Duckietown seems to be all about a simple toy car with some duckies on top, once you dive deeper you will find out that it is much bigger on the inside. It's not only about cars, but also boats and drones. And you can run the same code on a real Duckiebot, in simulation, or in a competitive AI Driving Olympics environment. You can also use some of the dozens of projects done before. As we clearly cannot cover everything in a concise way, this module will instead focus only on the code that runs on a Duckiebot during the standard demos, e.g. Lane Following and Indefinite Navigation.
 
-(duckietown-images)=
+(docker-images)=
 ## Main images and repositories
 
 You probably noticed three container and image names popping up when you were running the demos, calibrating your 

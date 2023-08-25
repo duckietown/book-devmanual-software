@@ -24,7 +24,7 @@ Click on the button that reads "Use this template" and then choose
 "Create a new repository" from the dropdown menu.
 
 ```{figure} ../../_images/beginner/github_use_template.jpg
-:width: 70%
+:width: 60%
 :name: fig:basic-github-use-template
 
 Use template repository on GitHub.
@@ -32,22 +32,22 @@ Use template repository on GitHub.
 
 This will take you to a page that looks like the following:
 
-```{figure} ../../_images/beginner/basic/create-repo-from-template.png
+```{figure} ../../_images/beginner/basic/create_repo_from_template.png
 :width: 90%
 :name: fig:basic-create-repo-from-template
 
 Creating a repository from template.
 ```
 
-Pick a name for your repository (say `my-program`) and press the button *Create repository from template*. 
-Note, you can replace `my-program` with the name of the repository that you prefer, if you do change it,
+Pick a name for your repository (say `my-project`) and press the button *Create repository from template*. 
+Note, you can replace `my-project` with the name of the repository that you prefer, if you do change it,
 make sure you use the right name in the instructions going forward.
 
 This will create a new repository and copy everything from the repository `template-basic` to your 
 new repository. You can now open a terminal and clone your newly created repository.
 
-    git clone https://github.com/YOUR_NAME/my-program
-    cd my-program
+    git clone https://github.com/YOUR_NAME/my-project
+    cd my-project
 
 ```{note}
 Replace `YOUR_NAME` in the link above with your GitHub username.
@@ -68,10 +68,17 @@ ARG MAINTAINER="<YOUR_FULL_NAME> (<YOUR_EMAIL_ADDRESS>)"
 
 Replace the placeholders strings with, respectively,
 
-- the name of the repository (i.e., `my-program`);
+- the name of the repository (i.e., `my-project`);
 - a brief description of the functionalities of the module
 - your name and email address to claim the role of maintainer;
 
+For example,
+
+```Dockerfile
+ARG REPO_NAME="my-project"
+ARG DESCRIPTION="My first Duckietown project"
+ARG MAINTAINER="Duckie (duckie@duckietown.com)"
+```
 
 Save the changes. We can now build the image, even though there is not going to be much going on 
 inside it until we place our code in it.
@@ -92,8 +99,8 @@ not committed (and in fact our changes to `Dockerfile` are not).
 This check is in place to prevent developers from forgetting to push local changes.
 If the build is successful, you will see something like the following:
 
-```{figure} ../../_images/beginner/dts_devel_build.png
-:width: 100%
+```{figure} ../../_images/beginner/basic/dts_devel_build.png
+:width: 704px
 :name: fig:build
 
 Building a container through the development command in the Duckietown shell.
@@ -105,7 +112,7 @@ image at the end of the output of the `dts devel build` command.
 In the example above, look for the line:
 
 ```sh
-Final image name: duckietown/my-program:v1-amd64
+Final image name: docker.io/duckietown/my-project:v2-amd64
 ```
 
 (dtproject-run-project)=
@@ -118,15 +125,12 @@ You can now run your container by executing the following command.
 This will show the following message:
 
 ```
-==> Entrypoint
-   INFO: The environment variable VEHICLE_NAME is not set. Using '...'.
-   WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
-   WARNING: robot_configuration file does not exist.
-   INFO: Network configured successfully.
-<== Entrypoint
+...
 ==> Launching app...
 This is an empty launch script. Update it to launch your application.
 <== App terminated!
 ```
 
-**Congratulations!** You just built and run your first Duckietown-compliant Docker image.
+```{admonition} Congratulations 🎉
+You just built and run your first Duckietown-compliant Docker image.
+```

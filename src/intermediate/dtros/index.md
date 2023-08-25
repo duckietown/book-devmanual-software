@@ -1,7 +1,9 @@
-(sec:dt_way_nodes)=
-# Structuring ROS Nodes
+(sec:intermediate-dtros)=
+# The **DTROS** class
 
-This section deals with how you should write the code in a ROS node. In particular, how to structure it. Writing the code of a node goes hand-in-hand with documenting it, but this will be discussed in more detail in [](sec:dt_way_code_docs).
+This section deals with how you should write the code in a ROS node. 
+In particular, how to structure it. Writing the code of a node goes hand-in-hand with documenting it, 
+but this will be discussed in more detail in [](sec:dt_way_code_docs).
 
 ## General structure
 

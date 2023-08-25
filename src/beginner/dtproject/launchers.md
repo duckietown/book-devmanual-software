@@ -14,6 +14,7 @@ is defined in all Duckietown images and is used to configure the containers' net
 etc. 
 ```
 
+(dtproject-launcher-default)=
 ## The default launcher
 
 Every project template comes with a launcher file called `default.sh`. This is the launcher that runs
@@ -36,6 +37,7 @@ want to leave the default launcher untouched as there is no "default calibration
 additional launchers `camera-intrinsic-calibration.sh`,  `camera-extrinsic-calibration.sh`, etc.
 
 
+(dtproject-launcher-add-new)=
 ## Add new launcher
 
 In order to add a new launcher, you can simply make a new file inside the `launchers/` directory.
