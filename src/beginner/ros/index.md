@@ -10,6 +10,12 @@
 * A custom ROS node with a publisher and a subscriber running on your Duckiebot
 ```
 
+## Table of contents
+
+```{tableofcontents}
+```
+
+
 (basic-structure)=
 ## Basic Project Structure
 In Duckietown, everything runs in Docker containers. All you need in order to run a piece of 

@@ -9,6 +9,14 @@
 * Learn how to use DTProjects, the most important building block in Duckietown
 ```
 
+
+## Table of contents
+
+```{tableofcontents}
+```
+
+---
+
 In Duckietown, everything runs in Docker containers.
 All you need in order to run a piece of software in Duckietown is a Duckietown-compliant Docker image
 with your software in it.
