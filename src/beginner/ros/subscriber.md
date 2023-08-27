@@ -16,7 +16,7 @@ The general concept is simple: a subscriber has the job of listening for message
 that are published by other ROS nodes (using **ROS Publishers**) over a ROS network. 
 
 
-(ros-pub-node-create)=
+(ros-sub-node-create)=
 ## Create Subscriber ROS Node
 
 In [](ros-catkin-package-create), we learned how to make a new Catkin package, we will now populate that
@@ -64,7 +64,7 @@ as an executable file. We do so by running the following command from the root o
     chmod +x ./packages/my_package/src/my_subscriber_node.py
 
 
-
+(ros-sub-define-launcher)=
 ## Define launcher
 
 We now create a new launcher file `./launchers/my-subscriber.sh` with the following content inside,
@@ -85,7 +85,7 @@ dt-launchfile-join
 ```
 
 
-## Launch the Publisher node
+## Launch the Subscriber node
 
 This part assumes that you have a Duckiebot up and running with a known hostname, e.g., `ROBOT_NAME`.
 Let us make sure that our robot is ready by executing the command,
