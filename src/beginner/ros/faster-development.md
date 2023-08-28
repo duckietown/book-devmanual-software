@@ -1,8 +1,10 @@
+(dtproject-ros-faster-development)=
 # Faster Development Workflow
 
 In this section we will learn some tricks that enable a much faster development workflow in `dts`.
 
 
+(dtproject-ros-faster-development-trick-run-locally)=
 ## Run locally
 
 As we have seen so far, we can add new code to a DTProject or make a change to existing code and then build 
