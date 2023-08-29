@@ -38,6 +38,7 @@ parts:
                 - file: beginner/ros/subscriber
                 - file: beginner/ros/faster-development
                 - file: beginner/ros/camera-reader
+                - file: beginner/ros/wheel-control
 #                - file: beginner/ros/launch-files
 #                - file: beginner/ros/namespace-remapping
 #                - file: beginner/ros/cli
