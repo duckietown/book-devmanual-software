@@ -24,6 +24,9 @@ where,
 - `vel_left`: is the signed duty cycle for the *left* wheel (-1.0: full throttle backwards; 0.0: still; 1.0: full throttle forward)
 - `vel_right`: is the signed duty cycle for the *right* wheel (-1.0: full throttle backwards; 0.0: still; 1.0: full throttle forward)
 
+```{note}
+There is no physical interpretation of these values, as in velocity or angular velocity, because the commands are PWM duty cycles. Therefore, the term throttle (0% - 100%) is used. And even given with the same throttle commands, the physical velocities would vary with different motors and wheels, which could be then measured by sensors like encoders.
+```
 
 (ros-wheel-control-node-create)=
 ## Create Publisher ROS Node
