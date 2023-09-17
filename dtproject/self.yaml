@@ -1,0 +1,8 @@
+name: "book-devmanual-software"
+maintainer:
+    name: "Andrea F. Daniele"
+    email: "afdaniele@duckietown.com"
+description: "Learn how to develop new software in Duckietown"
+version: 0.0.0
+# pick an icon from: https://fontawesome.com/v4.7.0/icons/
+icon: book
