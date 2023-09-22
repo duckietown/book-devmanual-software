@@ -4,7 +4,7 @@
 Now that we know how to package a piece of software into a Docker image for Duckietown using DTProjects, 
 we can go one step further and write code that will run on the robot instead of our local computer.
 
-This part assumes that you have a Duckiebot up and running with hostname `ROBOT_NAME`. 
+This part assumes that you have a Duckiebot [up and running](book-opmanual-duckiebot:setup-duckiebot-sd-card) with hostname `ROBOT_NAME`. 
 Of course, you don’t need to change the hostname to `ROBOT_NAME`, just replace it with your robot name 
 in the instructions below. You can make sure that your robot is ready by executing the command
 

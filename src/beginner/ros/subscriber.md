@@ -87,7 +87,7 @@ dt-launchfile-join
 
 ## Launch the Subscriber node
 
-This part assumes that you have a Duckiebot up and running with a known hostname, e.g., `ROBOT_NAME`.
+This part assumes that you have a Duckiebot [up and running](book-opmanual-duckiebot:setup-duckiebot-sd-card) with a known hostname, e.g., `ROBOT_NAME`.
 Let us make sure that our robot is ready by executing the command,
 
     ping ROBOT_NAME.local

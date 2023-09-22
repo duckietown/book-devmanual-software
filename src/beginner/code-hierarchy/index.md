@@ -97,7 +97,7 @@ Driving with a virtual joystick.
 
 ### Driving through the Dashboard
 
-As you saw when setting up your Duckiebot, the Dashboard and the Compose interface also provide manual driving 
+As you saw when setting up your [Duckiebot](book-opmanual-duckiebot:operation-use-the-dashboard), the Dashboard and the Compose interface also provide manual driving 
 functionality. For this, one needs the same images as before, of course together with the Dashboard image itself:
 
 ```{figure} ../../_images/beginner/config_dashboard.png
