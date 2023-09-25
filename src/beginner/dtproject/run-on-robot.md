@@ -45,6 +45,17 @@ Hello from ROBOT_NAME!
 <== App terminated!
 ```
 
+:::{note}
+Some WARNING and INFO messages from `dts` and from the container's entrypoint are expected. Here are some examples:
+
+From `dts`
+* `WARNING:dts:Forced!`
+* `INFO:dts:Running an image for arm64v8 on aarch64.`
+
+Among entrypoint logs of the container:
+* `INFO: The environment variable VEHICLE_NAME is not set. Using 'myduckiebot'.`
+:::
+
 
 ```{admonition} Congratulations 🎉
 You just built and run your first Duckietown-compliant and Duckiebot-compatible Docker image.

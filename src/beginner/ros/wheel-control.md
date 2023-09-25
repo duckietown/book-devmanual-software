@@ -21,9 +21,12 @@ float32 vel_right
 
 where,
 - `header`: is the [standard ROS header](https://wiki.ros.org/msg#Header) object;
-- `vel_left`: is the angular velocity in `rad/s` of the left wheel;
-- `vel_right`: is the angular velocity in `rad/s` of the right wheel;
+- `vel_left`: is the signed duty cycle for the *left* wheel (-1.0: full throttle backwards; 0.0: still; 1.0: full throttle forward)
+- `vel_right`: is the signed duty cycle for the *right* wheel (-1.0: full throttle backwards; 0.0: still; 1.0: full throttle forward)
 
+```{note}
+There is no physical interpretation of these values, as in velocity or angular velocity, because the commands are PWM duty cycles. Therefore, the term throttle (0% - 100%) is used. And even given with the same throttle commands, the physical velocities would vary with different motors and wheels, which could be then measured by sensors like encoders.
+```
 
 (ros-wheel-control-node-create)=
 ## Create Publisher ROS Node
@@ -35,14 +38,16 @@ We now use our favorite text editor to create the file
 #!/usr/bin/env python3
 
 import os
-import math
 import rospy
 from duckietown.dtros import DTROS, NodeType
 from duckietown_msgs.msg import WheelsCmdStamped
 
-# angular velocities for each wheel (quarter rotation a second)
-W_LEFT = 1/4 * (2 * math.pi)
-W_RIGHT = 1/4 * (2 * math.pi)
+
+# throttle and direction for each wheel
+THROTTLE_LEFT = 0.5        # 50% throttle
+DIRECTION_LEFT = 1         # forward
+THROTTLE_RIGHT = 0.3       # 30% throttle
+DIRECTION_RIGHT = -1       # backward
 
 
 class WheelControlNode(DTROS):
@@ -53,12 +58,9 @@ class WheelControlNode(DTROS):
         # static parameters
         vehicle_name = os.environ['VEHICLE_NAME']
         wheels_topic = f"/{vehicle_name}/wheels_driver_node/wheels_cmd"
-        wheel_radius_param = f"/{vehicle_name}/kinematics_node/radius"
-        # get duckiebot's wheel radius
-        wheel_radius = rospy.get_param(wheel_radius_param)
-        # compute linear speeds
-        self._vel_left = W_LEFT * wheel_radius
-        self._vel_right = W_RIGHT * wheel_radius
+        # form the message
+        self._vel_left = THROTTLE_LEFT * DIRECTION_LEFT
+        self._vel_right = THROTTLE_RIGHT * DIRECTION_RIGHT
         # construct publisher
         self._publisher = rospy.Publisher(wheels_topic, WheelsCmdStamped, queue_size=1)
 
