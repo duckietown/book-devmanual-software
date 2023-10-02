@@ -1,10 +1,10 @@
-(ros-pub-twist)=
-# Publish Twist2D Controls 
+(ros-pub-chassis-level-commands)=
+# Publish chassis-level commands 
 
 ```{needget}
 * A Duckietown robot turned ON and visible on `dts fleet discover`
 ---
-* Learn how to control the Duckiebot's chasis linear and angular velocities using a **ROS Publisher**
+* Learn how to control the Duckiebot's chassis linear and angular velocities using a **ROS Publisher**
 ```
 
 ## Topic and message type of interest
@@ -21,8 +21,8 @@ float32 omega
 
 where,
 - `header`: is the [standard ROS header](https://wiki.ros.org/msg#Header) object;
-- `v`: is the linear velocity in `m/s` with positive signs in the forward driving direction
-- `omega`: is the angular velocity in `rad/s` with positive signs in counter-clockwise direction when looking down to the Duckiebot
+- `v`: is the linear velocity in `m/s` with positive signs in the forward driving direction;
+- `omega`: is the angular velocity in `rad/s` with positive signs in counter-clockwise direction when looking down to the Duckiebot;
 
 ```{note}
 The commanded expected `v` and `omega` relies on good kinematic calibration and car model to function.
@@ -130,6 +130,5 @@ If you want to stop it, just use `Ctrl+C`, and the wheels should stop spinning a
 defined in the function `on_shutdown()` above.
 
 ```{admonition} Congratulations 🎉
-You just built and run a ROS node capable of interacting with the Duckiebot and control one
-of its actuators in another way.
+You just built and run a ROS node capable of interacting with the Duckiebot and control the wheels by leveraging existing functionalities exposed by the Duckiebot (e.g., inverse kinematics, wheel calibration).
 ```
