@@ -27,14 +27,14 @@ uint8 type
 
 where,
 - `header`: is the [standard ROS header](https://wiki.ros.org/msg#Header) object;
-- `data`: is the current accumulated number of ticks on that motor
+- `data`: is the current accumulated number of ticks on that motor;
 - `resolution`: is how many ticks will be recorded when the motor spins for a full revolution (360 degrees);
-- `type`: is whether the encoder gives accumulative/incremental, or absolute readings, and contains an enumeration value among `ENCODER_TYPE_ABSOLUTE` and `ENCODER_TYPE_INCREMENTAL`.
+- `type`: indicates the type of the encoder, `absolute` or `incremental`, and it takes the values from the constants `ENCODER_TYPE_ABSOLUTE` and `ENCODER_TYPE_INCREMENTAL` defined in the message itself. For a detailed explanation of the difference between the two types of encoders, we direct the reader to [this page](https://en.wikipedia.org/wiki/Rotary_encoder#Basic_types);
 
-For example, on the *DB21* series, the resolution is `135` and the type is `1` (`ENCODER_TYPE_INCREMENTAL`). This means the motor records `135` ticks when it spins *360* degrees, and the data could extend beyond `135` as it accumulates.
+For example, on the *DB21* series robot, the resolution is `135` and the type is `1` (`ENCODER_TYPE_INCREMENTAL`). This means that each motor records `135` ticks per full revolution, and that `data=0` at whatever the initial position of the wheel was when the robot was turned ON.
 
 ```{note}
-If the wheels are spun by hand, the ticks only increases and are not aware of the spinning directions. Only when the motion was triggered by sending a `wheels_cmd` (see [](ros-pub-wheels)), e.g. with the Virtual Joystick, the ticks could be direction-aware, and the ticks value could decrease.
+If the wheels are spun by hand, the ticks only increase. The robot can only sense direction (hence decrease the counter) when the wheels are spun by the motors.
 ```
 
 (ros-wheel-encoder-reader-node-create)=
@@ -145,9 +145,9 @@ The `resolution` and `type` values will be printed at the top of the logs once.
 Then in the console, the received left and right encoder data will be printed. Try:
 
 * spinning the left/right wheel, in both directions
-* driving the robot back and forth with the virtual joystick
+* driving the robot back and forth with the [virtual joystick](book-opmanual-duckiebot:rc-control)
 
-Observe how the values change with both method. 
+Observe how the values change in both cases.
 
 If you want to stop the node, just use `Ctrl+C` in the terminal.
 
