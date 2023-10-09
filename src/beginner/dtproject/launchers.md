@@ -76,3 +76,56 @@ Image launchers:
 Launchers inside the container appear as shell commands named as `dt-launcher-<LAUNCHER_NAME>`.
 For example, the launcher file `launchers/my-launcher.sh` will be available as the shell command
 `dt-launcher-my-launcher`.
+
+
+## A typical example launcher script explained
+
+In this section, we take a look at a simple and typical launcher script. In particular, let's try to understand these utilities:
+
+* `dt-launchfile-init`
+* `dt-exec`
+* `dt-launchfile-join`
+
+Here is an example launcher script in [dt-commons](https://github.com/duckietown/dt-commons/blob/cb09dcb933e5b304ff73425c867fcc220fd61530/launchers/default.sh):
+
+```
+#!/bin/bash
+source /environment.sh
+
+dt-launchfile-init
+dt-exec echo "This is an empty launch script. Update it to launch your application."
+dt-launchfile-join
+```
+
+Let's take a look at the file line by line, after the *shebang* (`#!/bin/bash`) line .
+
+
+```
+source /environment.sh
+```
+
+The above line loads our custom wrappers/functions facilitating launching programs. They are defined in [this file](https://github.com/duckietown/dt-commons/blob/cb09dcb933e5b304ff73425c867fcc220fd61530/assets/environment.sh), among which the reader in most cases only need to care about the use of the following 3 utilities.
+
+```
+dt-launchfile-init
+```
+
+The above makes sure the terminating signals are registered correctly for the programs that are run in this script. And it prints the line that goes `"==> Launching app..."`.
+
+Here is what's meant by "register terminating signals": It is common to press `[Ctrl+C]` to stop a terminal program. What happens under the hood is a [signal](https://manpages.ubuntu.com/manpages/focal/en/man7/signal.7.html) is sent to the foreground process that runs in the terminal. The process then decides what to do upon receiving one. And with `dt-launchfile-init`, it is setup such that the `SIGINT` signal will be passed to all child processes of the launcher script. In particular, when `[Ctrl+C]` is captured from the terminal, or when one performs `docker stop ...` to kill a container that runs a launcher script, this utility helps "broadcast" `SIGINT` for its child processes to shutdown properly.
+
+It is common to have some clean-up handling when `SIGINT` is received, e.g. `on_shutdown` function of classes inheriting from [DTROS](sec:intermediate-dtros). That is why it is important to ensure this signal gets through to all the child processes.
+
+```
+dt-exec ...
+```
+
+The `dt-exec` wrapper function launches the command that follows it in the background. And it is especially helpful when the command is supposed to continue running until shutdown, e.g. `rosrun` or `roslaunch`. It makes sure the complete execution of the launcher script, until the following part.
+
+```
+dt-launchfile-join
+```
+
+The above utility waits for any child processes to finish and return. The child processes should be shutdown properly with the help from `dt-launchfile-init`. And once they all exited, the following will be printed in the console: `"<== App terminated!"`.
+
+In summary, these 3 utilities help better manage the signals and processes within the launcher script, and should be used for your launcher scripts as well.
