@@ -120,7 +120,7 @@ It is common to have some clean-up handling when `SIGINT` is received, e.g. `on_
 dt-exec ...
 ```
 
-The `dt-exec` wrapper function launches the command that follows it in the background. And it is especially helpful when the command is supposed to continue running until shutdown, e.g. `rosrun` or `roslaunch`. It makes sure the complete execution of the launcher script, until the following part.
+The `dt-exec` function allows us to make new child processes and have them run in the background. You can have as many child processes as you want (i.e., have multiple commands of the form `dt-exec ...`). They all be kept running in the background and warned by `dt-launchfile-init` when a signal is received. Use `dt-exec` only for long running processes, i.e., processes that run until the container is stopped.
 
 ```
 dt-launchfile-join
