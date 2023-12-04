@@ -1,4 +1,4 @@
-# Welcome to the Duckietown Developer Manual
+# The Duckietown Developer Manual
 
 ```{tableofcontents}
 ```
