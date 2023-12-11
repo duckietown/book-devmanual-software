@@ -29,6 +29,8 @@ parts:
                 - file: beginner/dtproject/run-on-robot
                 - file: beginner/dtproject/launchers
                 - file: beginner/dtproject/templates
+                - file: beginner/dtproject/devcontainers
+
 
           - file: beginner/ros/index
             sections:
