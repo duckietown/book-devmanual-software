@@ -1,2 +1,5 @@
 # LIST YOUR DUCKIETOWN PYTHON3 PACKAGES HERE
 # NOTE: only place Duckietown libraries here; these libraries will be resolved to the latest available version and pinned; pin a specific version only if necessary
+
+# messages
+duckietown-messages>=0.0.10,<2

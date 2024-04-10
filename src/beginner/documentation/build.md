@@ -17,7 +17,6 @@ To insert rST into Markdown, you can use the [eval-rst directive](myst-parser:sy
 
    A note written in reStructuredText.
 
-.. include:: ./include-rst.rst
 ```
 ````
 
@@ -26,7 +25,6 @@ To insert rST into Markdown, you can use the [eval-rst directive](myst-parser:sy
 
    A note written in reStructuredText.
 
-.. include:: ./include-rst.rst
 ```
 
 ## Automatic API generation (advanced)
