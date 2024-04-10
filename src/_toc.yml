@@ -64,3 +64,17 @@ parts:
               - file: intermediate/diagnostics/get-started
               - file: intermediate/diagnostics/reference
           - file: intermediate/simulation/index
+
+    - caption: Interfaces
+      maxdepth: 2
+      numbered: False
+      chapters:
+        - file: interfaces/messages/index
+          sections:
+            - file: interfaces/messages/standard/index
+            - file: interfaces/messages/colors/index
+#            - file: interfaces/messages/simulation/index
+            - file: interfaces/messages/geometry_2d/index
+            - file: interfaces/messages/geometry_3d/index
+            - file: interfaces/messages/sensors/index
+            - file: interfaces/messages/actuators/index
