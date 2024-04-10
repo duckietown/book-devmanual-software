@@ -34,7 +34,7 @@ This message describes the properties of a camera.
 ```
 
 
-## CompressionImage
+## CompressedImage
 
 This message represents a compressed image.
 
