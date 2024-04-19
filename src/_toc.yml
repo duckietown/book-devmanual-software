@@ -80,3 +80,4 @@ parts:
             - file: interfaces/messages/geometry_3d/index
             - file: interfaces/messages/sensors/index
             - file: interfaces/messages/actuators/index
+            - file: interfaces/messages/calibrations/index

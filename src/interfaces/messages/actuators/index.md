@@ -15,6 +15,7 @@ This message can be used both as an input (control the robot) and as an output (
 ```{eval-rst}
 .. autopydantic_model:: duckietown_messages.actuators.differential_pwm.DifferentialPWM
     :member-order: bysource
+    :inherited-members: pydantic.BaseModel
 ```
 
 
@@ -29,6 +30,7 @@ This message can be used both as an input (control the lights) and as an output 
 ```{eval-rst}
 .. autopydantic_model:: duckietown_messages.actuators.car_lights.CarLights
     :member-order: bysource
+    :inherited-members: pydantic.BaseModel
 ```
 
 
@@ -42,6 +44,7 @@ This message is used to describe a fragment that can be displayed on a Duckiebot
 ```{eval-rst}
 .. autopydantic_model:: duckietown_messages.actuators.display_fragment.DisplayFragment
     :member-order: bysource
+    :inherited-members: pydantic.BaseModel
 ```
 
 
@@ -53,4 +56,5 @@ do just that.
 ```{eval-rst}
 .. autopydantic_model:: duckietown_messages.actuators.display_fragments.DisplayFragments
     :member-order: bysource
+    :inherited-members: pydantic.BaseModel
 ```
