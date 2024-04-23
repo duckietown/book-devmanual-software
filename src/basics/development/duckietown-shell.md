@@ -40,14 +40,7 @@ store. You can install the Duckietown Shell on your computer by running,
 This will install the `dts` command. 
 The Duckietown Shell is distribution independent, so the first time you launch
 it you have to specify the distribution of Duckietown software you are working 
-on. You can do so by running the command,
-
-    dts --set-version ![DISTRO]
-    
-where `![DISTRO]` can be any of the official distributions of Duckietown
-software, e.g., `daffy`, `ente`.
-This will download the commands for the given distribution before the command
-prompt is shown.
+on by following the setup prompts.
 
 Use the command,
 
