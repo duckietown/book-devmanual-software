@@ -67,6 +67,16 @@ This message represents a raw (uncompressed) image.
     :inherited-members: pydantic.BaseModel
 ```
 
+## Imu
+
+This message contains the data provided by an Imu.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.sensors.imu.Imu
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
 
 ## LinearAccelerations
 
