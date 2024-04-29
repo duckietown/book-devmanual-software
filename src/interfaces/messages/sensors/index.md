@@ -14,6 +14,15 @@ This message represents angular velocities with respect to a 3D reference frame.
     :inherited-members: pydantic.BaseModel
 ```
 
+## BatteryState
+
+This message provides information about the state of the robot's battery.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.sensors.battery.BatteryState
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
 
 ## ButtonEvent
 
@@ -58,6 +67,16 @@ This message represents a raw (uncompressed) image.
     :inherited-members: pydantic.BaseModel
 ```
 
+## Imu
+
+This message contains the data provided by an Imu.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.sensors.imu.Imu
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
 
 ## LinearAccelerations
 
@@ -98,6 +117,16 @@ This message represents a measured temperature.
 
 ```{eval-rst}
 .. autopydantic_model:: duckietown_messages.sensors.temperature.Temperature
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
+## WheelEncoder
+
+This message provides information about a wheel encoder.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.sensors.wheel_encoder.WheelEncoder
     :member-order: bysource
     :inherited-members: pydantic.BaseModel
 ```
