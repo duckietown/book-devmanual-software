@@ -3,6 +3,15 @@
 These messages are used to carry information about the state of the actuators in the system. 
 Examples of actuators are motors, LEDs, and Display.
 
+## AttitudePIDParameters
+
+Message providing the gains for the attitude (Roll, Yaw, Pitch) PIDs of a flight controller.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.attitude_pids_parameters.AttitudePIDParameters
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
 
 ## DifferentialPWM
 
@@ -18,6 +27,49 @@ This message can be used both as an input (control the robot) and as an output (
     :inherited-members: pydantic.BaseModel
 ```
 
+## DroneControl
+
+Control message for the drone, containing an attitude and throttle setpoint.
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.drone_control.DroneControl
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
+## DroneMode
+
+Message and response message for the trasnform changing the mode of the drone.
+
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.drone_mode.DroneModeMsg
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.drone_mode.DroneModeResponse
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
+`mode` can be one of the following:
+
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.drone_mode.Mode
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
+
+## DroneMotorCommand
+
+This message contains the motor PWM commands and information on the range `[Minimum, Maximum]`.
+```{eval-rst}
+.. autopydantic_model:: duckietown_messages.actuators.drone_motor_command.DroneMotorCommand
+    :member-order: bysource
+    :inherited-members: pydantic.BaseModel
+```
 
 ## CarLights
 
