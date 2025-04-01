@@ -13,22 +13,23 @@
 ```
 
 ## Why simulation?
-Daphne is an avid Duckietowner who loves Duckies. In her mission to "save the Duckies" from bugs in her code she used to spend a large portion of her time writing unit tests for her algorithms and ROS nodes. Some of these tests would check that the accuracy of her object detection pipeline was above a certain threshold, that the estimated offset of the Duckiebot from the lane given several input images was correct or that the output of the controller given several offsets gave sensible results. She noticed that this way of testing would fall short in several aspects:
+
+Daphne is an avid Duckietowner who loves Duckies. In her mission to "save the Duckies" from bugs in her code, she spends a large portion of her time writing unit tests for her algorithms and ROS nodes. Some of these tests would check that the accuracy of her object detection pipeline was above a certain threshold, that the estimated offset of the Duckiebot from the lane given several input images was correct, or that the output of the controller given several offsets gave sensible results. She noticed that this way of testing would fall short in several aspects:
 
 - The number of hand-crafted edge cases was not representative of the number of situations the Duckiebot would encounter in a single drive
 - Issues at the interface of these algorithms would not be caught
-- To increase code coverage and maintain it, a lot of time would need to go into writing tests, mock ups, gathering and labelling test data, etc
+- To increase code coverage and maintain it, a lot of time would need to go into writing tests, mock-ups, gathering and labeling test data, etc
 - Quantifying controller performance was hard without having access to a model of the vehicle used to propagate the state forward in time
 
-Daphne also found that having to charge her robot's battery, setting up her Duckietown loop, placing her Duckiebot on the loop, connecting to it, and running the part of the pipeline that had to be tested everytime she or someone in her team wanted to merge new changes into the codebase was extremely time consuming.
+Daphne also found that having to charge the battery of her robot, set up her Duckietown loop, place her Duckiebot on the loop, connect to it, and run the part of the pipeline that had to be tested every time she or someone in her team wanted to merge new changes into the codebase was extremely time-consuming.
 
-More over, Daphne and her real Duckiebot only have access to a small Duckietown loop. But she wants to ensure that her algorithms work in the most complicated and busy environments of Duckietown.
+Moreover, Daphne and her real Duckiebot only have access to a small Duckietown loop. However she wants to ensure that her algorithms work in the most complicated and busy environments of Duckietown.
 
-All of the above were compelling reasons for Daphne to start looking at full-stack simulators that would allow her to simultaneously address the shortcomings of unit testing, the inconvenience of manual testing and the ability to test scenarios that are not possible or too risky in real life. 
+All of the above were compelling reasons for Daphne to start looking at full-stack simulators that would allow her to simultaneously address the shortcomings of unit testing, the inconvenience of manual testing, and the ability to test scenarios that are not possible or too risky in real life. 
 
 Luckily, she found just the right thing at the [Duckietown gym](https://github.com/duckietown/gym-duckietown).
 
-Daphne's story is the story of every autonomous driving company, whose mission is instead to "save the humans" and which cannot afford to make mistakes on the real roads, and which require automated integration testing tools that can be run faster-than-real-time under challenging conditions. As an example, Waymo has driven around 20 million miles on real roads, but around 15 billion miles in simulation!
+Daphne's story is the story of every autonomous driving company, whose mission is instead to "save the humans" and which cannot afford to make mistakes on the real roads, and which requires automated integration testing tools that can be run faster-than-real-time under challenging conditions. As an example, Waymo has driven around 20 million miles on real roads, but around 15 billion miles in simulation!
 
 ## Introduction to the Duckietown Simulator
 
@@ -63,7 +64,7 @@ installed):
 reference to daffy library above
 ```
 
-Now you need to create a simple python script with uses the gym-duckietown API 
+Now you need to create a simple Python script with uses the gym-duckietown API 
 to connect to the simulator, the API is very simple as you will see.
 
 Create and run the following file, from within the environment you have set up above:
@@ -92,7 +93,7 @@ while True:
 ```
 
 What do you observe? Does this make sense? Why is it driving straight? 
-Can you make it drive backwards or turn? When is `done = True`? What is `observation`? 
+Can you make it drive backward or turn? When is `done = True`? What is `observation`? 
 
 
 ### Driving around in the simulator
@@ -173,7 +174,7 @@ Alternatively, you can find further installation instructions [here](https://git
 There is a pre-built Docker image available [on Docker Hub](https://hub.docker.com/r/duckietown/gym-duckietown), which also contains an installation of PyTorch.
 
 ```{note}
-In order to get GPU acceleration, you should install and use [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
+To get GPU acceleration, you should install and use [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 ```
 
 
@@ -218,20 +219,20 @@ The available object types are:
 * building (multi-floor building)
 * sign_stop, sign_T_intersect, sign_yield, etc. (see [meshes subdirectory](https://github.com/duckietown/gym-duckietown/blob/master/gym_duckietown/meshes) )
 
-Although the environment is rendered in 3D, the map is essentially two-dimensional. As such, objects coordinates are specified along two axes. The coordinates are rescaled based on the tile size, such that coordinates [0.5, 1.5] would mean middle of the first column of tiles, middle of the second row. Objects can have an `optional` flag set, which means that they randomly may or may not appear during training, as a form of domain randomization.
+Although the environment is rendered in 3D, the map is essentially two-dimensional. As such, object coordinates are specified along two axes. The coordinates are rescaled based on the tile size, such that coordinates [0.5, 1.5] would mean the middle of the first column of tiles, the middle of the second row. Objects can have an `optional` flag set, which means that they randomly may or may not appear during training, as a form of domain randomization.
 
 ### Observations
 
-The observations are single camera images, as numpy arrays of size (120, 160, 3). These arrays contain unsigned 8-bit integer values in the [0, 255] range.
-This image size was chosen because it is exactly one quarter of the 640x480 image resolution provided by the camera, which makes it fast and easy to scale down
+The observations are single camera images, as `numpy` arrays of size (120, 160, 3). These arrays contain unsigned 8-bit integer values in the [0, 255] range.
+This image size was chosen because it is exactly one-quarter of the 640x480 image resolution provided by the camera, which makes it fast and easy to scale down
 the images. The choice of 8-bit integer values over floating-point values was made because the resulting images are smaller if stored on disk and faster to send over a networked connection.
 
 ### Actions
 
 The simulator uses continuous actions by default. Actions passed to the `step()` 
-function should be numpy arrays containining two numbers between -1 and 1. 
-These two numbers correspond to the left and right wheel input respectively. 
-A positive value makes the wheel go forward, a negative value makes it go backwards. 
+function should be `numpy` arrays containing two numbers between -1 and 1. 
+These two numbers correspond to the left and right wheel inputs respectively. 
+A positive value makes the wheel go forward, a negative value makes it go backward. 
 There is also a [Gym wrapper class](https://github.com/duckietown/gym-duckietown/blob/daffy/gym_duckietown/wrappers.py) named `DiscreteWrapper` which allows you to use discrete actions (turn left, move forward, turn right) instead of continuous actions if you prefer.
 
 ### Reward Function
@@ -278,7 +279,7 @@ When we [take a look at the constructor](https://github.com/duckietown/gym-ducki
 The simulator uses the OpenGL API to produce graphics. This requires an X11 display to be running, which can be problematic if you are trying to run training code through on SSH, or on a cluster. You can create a virtual display using [Xvfb](https://en.wikipedia.org/wiki/Xvfb). The instructions shown below illustrate this. Note, however, that these instructions are specific to MILA, look further down for instructions on an Ubuntu box:
 
 ```zsh
-# Reserve a Debian 9 machine with 12GB ram, 2 cores and a GPU on the cluster
+# Reserve a Debian 9 machine with 12GB RAM, 2 cores, and a GPU on the cluster
 sinter --reservation=res_stretch --mem=12000 -c2 --gres=gpu
 
 # Activate the gym-duckietown Conda environment
@@ -308,7 +309,7 @@ If you run into problems of any kind, don't hesitate to [open an issue](https://
 ```{trouble}
 ImportError: Library "GLU" not found
 ---
-You may need to manually install packaged needed by Pyglet or OpenAI Gym on your system. The command you need to use will vary depending which OS you are running. For example, to install the glut package on Ubuntu:
+You may need to manually install packaged needed by Pyglet or OpenAI Gym on your system. The command you need to use will vary depending on which OS you are running. For example, to install the glut package on Ubuntu:
 
 ``
     $ sudo apt-get install freeglut3-dev
@@ -325,7 +326,7 @@ And on Fedora:
 NoSuchDisplayException: Cannot connect to "None"
 ---
 If you are connected through SSH, or running the simulator in a Docker image, 
-you will need to use xvfb to create a virtual display in order to run the simulator. 
+you will need to use `xvfb` to create a virtual display to run the simulator. 
 See the [Running Headless](simulator-running-headless) subsection.
 ```
 
@@ -344,7 +345,7 @@ Unknown encoder 'libx264' when using gym.wrappers.Monitor
 ---
 It is possible to use `gym.wrappers.Monitor` to record videos of the agent performing a task. See [examples here](https://www.programcreek.com/python/example/100947/gym.wrappers.Monitor).
 
-The libx264 error is due to a problem with the way ffmpeg is installed on some linux distributions. One possible way to circumvent this is to reinstall ffmpeg using conda:
+The libx264 error is due to a problem with the way `ffmpeg` is installed on some Linux distributions. One possible way to circumvent this is to reinstall `ffmpeg` using conda:
 
 ``
       $ conda install -c conda-forge ffmpeg
@@ -355,7 +356,7 @@ Alternatively, screencasting programs such as [Kazam](https://launchpad.net/kaza
 ```
 
 ## How to cite
-Please use this bibtex if you want to cite this repository in your publications:
+Please use this BibTeX if you want to cite this repository in your publications:
 
 ```
 @misc{gym_duckietown,
