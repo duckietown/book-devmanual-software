@@ -9,7 +9,7 @@
 ```
 
 
-## Create project from a template
+## Create a project from a template
 
 Visit the template repository page
 [duckietown/template-ros](https://github.com/duckietown/template-ros/).
@@ -65,7 +65,7 @@ ARG DESCRIPTION="<DESCRIPTION_HERE>"
 ARG MAINTAINER="<YOUR_FULL_NAME> (<YOUR_EMAIL_ADDRESS>)"
 ```
 
-Replace the placeholders strings with, respectively,
+Replace the placeholder strings with, respectively,
 
 - the name of the repository (i.e., `my-ros-project`);
 - a brief description of the functionalities implemented in this project;
@@ -109,5 +109,5 @@ This is an empty launch script. Update it to launch your application.
 
 
 ```{admonition} Congratulations 🎉
-You just built and run your first ROS-based Duckietown-compliant Docker image.
+You just built and ran your first ROS-based Duckietown-compliant Docker image.
 ```
