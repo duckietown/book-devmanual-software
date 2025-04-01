@@ -18,16 +18,15 @@
 ---
 
 In Duckietown, everything runs in Docker containers.
-All you need in order to run a piece of software in Duckietown is a Duckietown-compliant Docker image
+All you need to run a piece of software in Duckietown is a Duckietown-compliant Docker image
 with your software in it.
 
-Duckietown-compliant Docker images are built out of Duckietown Projects, in short `DTProjects`.
+Duckietown-compliant Docker images are built out of Duckietown Projects, in short, `DTProjects`.
 A DTProject is a git repository with an agreed-upon structure that our automated tools can parse.
-Everybody can use existing DTProjects and everybody can create new ones and distribute them freely 
-over the internet. Agreeing on a structure for our code is crucial for the creation of a community 
+Agreeing on a structure for our code is crucial for creating a community 
 of developers who can easily share their solutions.
 
-High level robot behaviors in Duckietown, such as autonomous driving (in Duckiebots) or autonomous 
+High-level robot behaviors in Duckietown, such as autonomous driving (in Duckiebots) or autonomous 
 flight (in Duckiedrones), are implemented collectively by a set of DTProjects.
 Breaking down a complex problem into smaller problems that are tackled independently is very common 
 in software development and is inspired by a military strategy called "divide and conquer" 
@@ -48,11 +47,11 @@ now is crucial.
 
 _Bad news first!_ The biggest downside of using Docker to isolate the execution of our code
 is that by doing so, we are wrapping our source code inside a Docker image. This
-makes it harder for us to do development, since our code will not be easily accessible
+makes it harder for us to do development since our code will not be easily accessible
 through our local file system. This is what scares/frustrates people away from Docker
 the most. Keep it in mind, if it happens to you, you are not the only one.
 The Duckietown development workflow explained in this book aims, among other things,
-at reducing the effect of this code isolation. We will get back to this topic later
+to reduce the effect of this code isolation. We will get back to this topic later
 in the book.
 
 _As for the good news_, i.e., why using Docker to isolate our code makes sense and our
@@ -62,7 +61,7 @@ go.
 
 ## Structure of a DTProject
 
-DTProjects have an agreed-upon files structure with known locations for source code, 
+DTProjects have an agreed-upon file structure with known locations for source code, 
 configuration files, dependencies lists, etc. 
 
 ### Meta-files
@@ -119,5 +118,5 @@ this section, we can use any template for the remainder of this section, we sugg
 using the one above.
 For a list of predefined project templates, check out the [](project-templates)
 
-In the next sections of this chapter we will learn how to customize, build, and run our own DTProjects
+In the next sections of this chapter, we will learn how to customize, build, and run our own DTProjects
 both locally and on a Duckietown robot.
