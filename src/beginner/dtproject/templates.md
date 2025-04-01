@@ -5,7 +5,7 @@ While DTProjects are open to all sorts of customizations to accommodate for virt
 Duckietown provides a set of templated projects that cover the most common use cases.
 For each project template we provide a templated repository.
 
-
+(project-templates-coding)=
 ## Coding project templates
 
 These project templates are designed for projects implementing robot behaviors (e.g., lane following),
@@ -33,7 +33,7 @@ back-end systems (e.g., REST APIs), etc.
   - [duckietown/template-core](https://github.com/duckietown/template-core)
 ```
 
-
+(project-templates-docs)=
 ## Documentation project templates
 
 These project templates are designed for projects implementing documentation books and manuals such as
@@ -53,7 +53,7 @@ the one you are looking at right now.
   - [duckietown/template-book](https://github.com/duckietown/template-book)
 ```
 
-
+(project-templates-lxs)=
 ## Duckietown Learning Experiences (LXs) project templates 
 
 These project templates are designed for the development of web-based dashboards based on `\compose\`. 
@@ -71,7 +71,7 @@ A project based on this template is the robot dashboard.
   - [duckietown/template-lx-recipe](https://github.com/duckietown/template-lx-recipe)
 ```
 
-
+(project-templates-dashboard)=
 ## Dashboard project templates
 
 These project templates are designed for the development of web-based dashboards based on `\compose\`.
