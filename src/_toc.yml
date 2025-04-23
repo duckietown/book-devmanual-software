@@ -8,12 +8,12 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: basics/terminal/index
-          - file: basics/development/index
+          - file: basics/terminal/terminal-basics
+          - file: basics/development/foreword
             sections:
               - file: basics/development/iso-iec9126
               - file: basics/development/linux
-              - file: basics/development/git
+              - file: basics/development/developer-basics-git
               - file: basics/development/docker
               - file: basics/development/duckietown-shell
 
