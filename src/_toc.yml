@@ -14,7 +14,7 @@ parts:
               - file: basics/development/iso-iec9126
               - file: basics/development/linux
               - file: basics/development/developer-basics-git
-              - file: basics/development/docker
+              - file: basics/development/developer-basics-docker
               - file: basics/development/duckietown-shell
 
     - caption: Beginner
