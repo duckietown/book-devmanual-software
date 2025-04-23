@@ -1,9 +1,12 @@
+```{seo}
+:description: Learn about the ISO/IEC 9126 standard for software quality, its relevance to good software practices, and how it influences the Duckietown development workflow.
+:keywords: ISO/IEC 9126, software quality, software engineering, good software, software practices, Duckietown development
+```
+
 (sec:developer_basics_iso_9126)=
 # ISO/IEC 9126
 
-ISO/IEC 9126 is a international standard for product quality in Software
-Engineering. It was officially replaced by the new ISO/IEC 25010 in 2011
-that introduces a few minor changes.
+ISO/IEC 9126 is an international standard for product quality in software engineering. It was officially replaced by ISO/IEC 25010 in 2011, which introduced a few minor changes to the original standard.
 
 
 ```{figure} ../../_images/basics/development/iso_9126.png
@@ -14,23 +17,15 @@ that introduces a few minor changes.
 ISO/IEC 9126 Standard (source: Wikipedia)
 ```
 
+Software development, like any human activity, is subject to inherent biases. The goal of the ISO/IEC 9126 standard is to identify and address these biases by establishing clear guidelines for what constitutes a **high-quality** software product.
 
-Software development, as any other activities carried out by human beings
-is subject to human biases. The ISO/IEC 9126 standard's objective is that of
-aknowledging the most common biases and addressing them by definining clear
-guidelines about what properties a **good** software product should have.
+This section will not dive deeply into the standard, but we believe that ISO/IEC 9126 (and its successor, ISO/IEC 25010) should be a fundamental reference for any developer committed to best practices.
 
-In this section, we are not going to dive into this standard, but we strongly
-believe that such standard (and its successor ISO/IEC 25010) should be the
-best friend of any developer.
-
-Throughout this book, we will mention some of these qualities as we motivate
-some of the decisions made while creating the Duckietown Development Workflow.
-
+Throughout this manual, we will highlight relevant qualities from the standard to explain key decisions made during the development of the Duckietown Development Workflow.
 
 ## Hands on
 
-We suggest the reader to get familiar with such standard by using these resources:
+We recommend familiarizing yourself with the ISO/IEC standards by consulting the following resources:
 
 - [Wikipedia - ISO/IEC 9126](https://en.wikipedia.org/wiki/ISO/IEC_9126)
 - [Official ISO/IEC 9126 (by ISO.org)](https://www.iso.org/standard/22749.html)
@@ -39,5 +34,4 @@ We suggest the reader to get familiar with such standard by using these resource
 
 ## Ask the community
 
-If you have any questions about good practices in software development,
-join the Duckietown Slack.
+For further questions on software development best practices, consider [joining the Duckietown Slack community](https://duckietown.com/join-slack).
