@@ -32,7 +32,7 @@ parts:
 
           - file: beginner/ros/index
             sections:
-                - file: beginner/ros/create-project
+                - file: beginner/ros/create-new-ros-project
                 - file: beginner/ros/catkin-packages
                 - file: beginner/ros/publisher
                 - file: beginner/ros/subscriber

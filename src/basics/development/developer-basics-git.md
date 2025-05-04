@@ -75,7 +75,7 @@ and you are confident enough about those changes, you can commit (or, "save" the
 * `git add <file(s)>`, e.g., `git add .` to indicate all changes
 * `git commit -m "Replace me with some informative message regarding the commit."`.
 
-```{info}
+```{note}
 A commit is not a snapshot (or a copy) of the entire repository
 at a given point in time. Each commit contains only the incremental
 difference from the previous commit, called *delta* in Git.
@@ -187,7 +187,7 @@ When you create a new commit, the hash for the current working tree
 is computed and assigned to the new commit together with the changes
 since the last commit. The working tree clears as you commit changes.
 
-```note
+```{note}
 You cannot create commits from a clean working tree.
 ```
 

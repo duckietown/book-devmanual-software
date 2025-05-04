@@ -11,4 +11,3 @@ Head to [](#dt_way_build_docs) for the details about how to then create a human-
 ```{tableofcontents}
 ```
 
----

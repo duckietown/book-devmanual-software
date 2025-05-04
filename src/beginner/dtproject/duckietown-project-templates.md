@@ -44,7 +44,7 @@ the one you are looking at right now.
 
 ```{list-table} Documentation project templates
 :header-rows: 1
-:name: project-templates-docs
+:name: table-project-templates-docs
 
 * - Name
   - Features
