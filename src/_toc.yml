@@ -15,20 +15,20 @@ parts:
               - file: basics/development/linux
               - file: basics/development/developer-basics-git
               - file: basics/development/developer-basics-docker
-              - file: basics/development/duckietown-shell
+              - file: basics/development/dts-duckietown-shell
 
     - caption: Beginner
       maxdepth: 2
       numbered: False
       chapters:
-          - file: beginner/dtproject/index
+          - file: beginner/dtproject/introduction-to-duckietown-projects
             sections:
-                - file: beginner/dtproject/create-project
-                - file: beginner/dtproject/add-your-code
-                - file: beginner/dtproject/dependencies
-                - file: beginner/dtproject/run-on-robot
-                - file: beginner/dtproject/launchers
-                - file: beginner/dtproject/templates
+                - file: beginner/dtproject/how-to-create-a-duckietown-project
+                - file: beginner/dtproject/adding-code-to-a-dtproject
+                - file: beginner/dtproject/working-with-dtproject-dependencies
+                - file: beginner/dtproject/running-a-dtproject-on-duckietown-robot
+                - file: beginner/dtproject/managing-dt-project-launchers
+                - file: beginner/dtproject/duckietown-project-templates
 
           - file: beginner/ros/index
             sections:
