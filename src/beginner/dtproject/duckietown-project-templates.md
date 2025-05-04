@@ -1,9 +1,12 @@
+```{seo}
+:description: Explore Duckietown project templates for coding, documentation, learning experiences, and dashboards to accelerate your robotics development.
+:keywords: Duckietown, project templates, DTProject, robotics development, templates, coding, documentation, LX, dashboard
+```
+
 (project-templates)=
 # Project Templates
 
-While DTProjects are open to all sorts of customizations to accommodate for virtually any need, 
-Duckietown provides a set of templated projects that cover the most common use cases.
-For each project template we provide a templated repository.
+While DTProjects are open to all sorts of customizations to accommodate for virtually any need, Duckietown provides a set of templated projects that cover the most common use cases. For each project template, a templated repository is provided.
 
 (project-templates-coding)=
 ## Coding project templates
