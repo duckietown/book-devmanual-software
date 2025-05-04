@@ -15,7 +15,7 @@
 * Learn how to create a new DTProject from a template
 ```
 
-Duckietown-compliant Docker images are built from Duckietown Projects, abbreviated as `DTProjects`. Read the [introduction to DTprojects](dtprojects) if not already done.
+Duckietown-compliant Docker images are built from Duckietown Projects, abbreviated as `DTProjects`. Read the [introduction to DTprojects](dtproject) if not already done.
 
 A boilerplate for the simplest DTProject is provided by the 
 [duckietown/template-basic](https://github.com/duckietown/template-basic/) 

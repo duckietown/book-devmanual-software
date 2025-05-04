@@ -1,3 +1,8 @@
+```{seo}
+:description: Learn how to create and configure Catkin packages within a ROS-compatible Duckietown DTProject using the Catkin build system.
+:keywords: Duckietown, ROS, Catkin, DTProject, catkin workspace, ROS packages, robotics development
+```
+
 (ros-catkin-packages)=
 # Catkin Packages
 
@@ -8,51 +13,36 @@
 ```
 
 ROS uses the [catkin](http://wiki.ros.org/catkin) build system to organize and build its software.
-If you are not familiar with the catkin build system, you can learn about it by following the
-[official tutorials](http://wiki.ros.org/catkin/Tutorials).
+IIf unfamiliar with catkin, follow the [official tutorials](http://wiki.ros.org/catkin/Tutorials).
 
-In a nutshell, catkin organizes entire projects in the so-called _catkin workspaces_.
-A catkin workspace is nothing more than a directory containing a bunch of software modules called
-_catkin packages_. Each software module can contain a set of executables (e.g., binaries, script files)
-called _ROS nodes_. ROS nodes interact with one another using two of the most common communication patterns,
-called 
-[`publish-subscribe`](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and 
-[`request-reply`](https://en.wikipedia.org/wiki/Request%E2%80%93response).
+In a nutshell, catkin organizes entire projects in the so-called _catkin workspaces_, which are directories containing software modules called
+_catkin packages_. Each module can include executables (e.g., binaries, script files) known as _ROS nodes_. Nodes interact with one another using two of the most common communication patterns, called [`publish-subscribe`](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [`request-reply`](https://en.wikipedia.org/wiki/Request%E2%80%93response).
 
-ROS implements the `publish-subscribe` pattern using **ROS Publishers** and **ROS Subscribers**, and the
-`request-reply` pattern using **ROS Services**. More on these later.
-
-Let us now take a step back and review catkin workspaces, packages, and nodes more in details.
-
+ROS implements the `publish-subscribe` pattern using **ROS Publishers** and **ROS Subscribers**, and the `request-reply` pattern using **ROS Services**.
 
 (ros-catkin-workspace)=
 ## Catkin workspace
 
-The directory `packages/` you find at the root of a DTProject is a catkin workspace.
+The `packages/` directory at the root of a DTProject serves as the catkin workspace.
 
 ````{admonition} Advanced: the real story behind the _packages_ directory
 :class: dropdown
 
-In reality, `packages/` is more of a sub-workspace, as it is internally joined with other `packages/`
-directories from other projects (the ancestor projects) to form a full catkin workspace.
+The `packages/` directory is actually a sub-workspace. It merges with ancestor projects’ `packages/` directories to form a complete catkin workspace.
 ````
 
 
 (ros-catkin-package-create)=
 ## Create a new Catkin package
 
-Open a terminal at the root of the DTProject `my-ros-project` created earlier. 
-Again, Catkin packages are directories inside the directory `packages/` of `my-ros-project`. 
-Let us go ahead and create a new directory called `my_package` inside `packages/`.
+Open a terminal at the root of the DTProject `my-ros-project`. Catkin packages are directories inside the directory `packages/` of `my-ros-project`. Create a new package directory:
 
     mkdir -p ./packages/my_package
 
-A Catkin package (also known as a _ROS package_) is simply a directory containing two special files, 
-`package.xml` and `CMakeLists.txt`. 
-So, let us turn the `my_package` folder into a ROS package by creating these two files.
+A Catkin package (also known as a _ROS package_) requires two files: 
+`package.xml` and `CMakeLists.txt`.
 
-Create the file `package.xml` inside `my_package` using your favorite text editor and 
-place/adjust the following content inside it:
+1. Create `packages/my_package/package.xml` with the following content:
 
 ```xml
 <package>
@@ -68,12 +58,9 @@ place/adjust the following content inside it:
 </package>
 ```
 
-Replace `YOUR_FULL_NAME` with your first and last name and `YOUR_EMAIL@EXAMPLE.COM` with your email address.
+Replace `YOUR_FULL_NAME` and `YOUR_EMAIL@EXAMPLE.COM` accordingly.
 
----
-
-Now, create the file `CMakeLists.txt` inside `my_package` using your favorite text editor and 
-place/adjust the following content inside it:
+2. Create `packages/my_package/CMakeLists.txt` with the content:
 
 ```cmake
 cmake_minimum_required(VERSION 2.8.3)
@@ -86,5 +73,4 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 ```
 
-We now have a catkin package inside a catkin workspace in a ROS-capable DTProject.
-We will now add our code by adding ROS nodes to our catkin package.
+We now have a Catkin package inside a Catkin workspace in a ROS-capable DTProject. We can now proceed to add ROS nodes. 
