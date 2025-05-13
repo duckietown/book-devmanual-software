@@ -1,3 +1,167 @@
+
+
+```{seo}
+:description: Learn how to publish linear and angular velocity commands to the Duckiebot chassis using a ROS Publisher and the Twist2DStamped message.
+:keywords: Duckietown, ROS, Publisher, chassis control, Twist2DStamped, robotics, dts code
+```
+
+
+(ros-pub-chassis-level-commands)=
+# Publish chassis-level commands
+
+
+```{needget}
+* A Duckietown robot turned ON and visible on `dts fleet discover`
+---
+* Learn how to control the Duckiebot’s chassis linear and angular velocities using a **ROS Publisher**
+```
+
+
+## Topic and message type of interest
+
+
+The Duckiebot subscribes to chassis commands on the topic:
+
+
+```
+/ROBOT_NAME/car_cmd_switch_node/cmd
+```
+
+
+The message type is **duckietown_msgs/Twist2DStamped**, with fields:
+
+
+```text
+std_msgs/Header header
+float32 v
+float32 omega
+```
+
+
+- `header`: standard ROS header  
+- `v`: linear velocity in m/s (forward positive)  
+- `omega`: angular velocity in rad/s (counter‑clockwise positive)  
+
+
+```{note}
+Effective `v` and `omega` commands require proper kinematic calibration.
+```
+
+
+(ros-twist-control-node-create)=
+## Create Publisher ROS Node
+
+
+Create `twist_control_node.py` in the `src/` directory:
+
+
+```python
+#!/usr/bin/env python3
+
+
+import os
+import rospy
+from duckietown.dtros import DTROS, NodeType
+from duckietown_msgs.msg import Twist2DStamped
+
+
+# Twist command parameters
+VELOCITY = 0.3  # linear m/s, forward (+)
+OMEGA    = 4.0  # angular rad/s, CCW (+)
+
+
+class TwistControlNode(DTROS):
+
+
+   def __init__(self, node_name):
+       super(TwistControlNode, self).__init__(node_name=node_name, node_type=NodeType.GENERIC)
+       vehicle_name = os.environ['VEHICLE_NAME']
+       twist_topic  = f"/{vehicle_name}/car_cmd_switch_node/cmd"
+       self._v     = VELOCITY
+       self._omega = OMEGA
+       self._publisher = rospy.Publisher(twist_topic, Twist2DStamped, queue_size=1)
+
+
+   def run(self):
+       rate = rospy.Rate(10)
+       message = Twist2DStamped(v=self._v, omega=self._omega)
+       while not rospy.is_shutdown():
+           self._publisher.publish(message)
+           rate.sleep()
+
+
+   def on_shutdown(self):
+       stop = Twist2DStamped(v=0.0, omega=0.0)
+       self._publisher.publish(stop)
+
+
+if __name__ == '__main__':
+   node = TwistControlNode(node_name='twist_control_node')
+   node.run()
+   rospy.spin()
+```
+
+
+Make it executable:
+
+
+```bash
+chmod +x ./packages/my_package/src/twist_control_node.py
+```
+
+
+## Define launcher
+
+
+Create `launchers/twist-control.sh`:
+
+
+```shell
+#!/bin/bash
+
+
+source /environment.sh
+
+
+dt-launchfile-init
+rosrun my_package twist_control_node.py
+dt-launchfile-join
+```
+
+
+Rebuild the image:
+
+
+```bash
+dts devel build -f
+```
+
+
+## Launch the node
+
+
+```{danger}
+The robot’s wheels will start moving immediately. Ensure adequate clear space to avoid accidents.
+```
+
+
+Run the node:
+
+
+```bash
+dts devel run -R ROBOT_NAME -L twist-control
+```
+
+
+Stop with `Ctrl+C`; `on_shutdown()` will halt movement.
+
+
+```{admonition} Congratulations 🎉
+You just built and ran a ROS node that controls the Duckiebot chassis using Twist commands.
+```
+
+
+<!--
 (ros-pub-chassis-level-commands)=
 # Publish chassis-level commands 
 
@@ -132,3 +296,4 @@ defined in the function `on_shutdown()` above.
 ```{admonition} Congratulations 🎉
 You just built and run a ROS node capable of interacting with the Duckiebot and control the wheels by leveraging existing functionalities exposed by the Duckiebot (e.g., inverse kinematics, wheel calibration).
 ```
+-->

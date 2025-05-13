@@ -30,15 +30,15 @@ parts:
                 - file: beginner/dtproject/managing-dt-project-launchers
                 - file: beginner/dtproject/duckietown-project-templates
 
-          - file: beginner/ros/index
+          - file: beginner/ros/introduction-to-using-ros-with-duckietown
             sections:
                 - file: beginner/ros/create-new-ros-project
                 - file: beginner/ros/catkin-packages
-                - file: beginner/ros/publisher
-                - file: beginner/ros/subscriber
-                - file: beginner/ros/faster-development
-                - file: beginner/ros/camera-reader
-                - file: beginner/ros/wheel-encoder-reader
+                - file: beginner/ros/ros-publisher
+                - file: beginner/ros/ros-subscriber
+                - file: beginner/ros/faster-development-workflow
+                - file: beginner/ros/duckiebot-camera-subscriber
+                - file: beginner/ros/duckiebot-wheel-encoder-subscriber
                 - file: beginner/ros/wheel-control
                 - file: beginner/ros/twist-control
 #                - file: beginner/ros/launch-files
@@ -46,9 +46,9 @@ parts:
 #                - file: beginner/ros/cli
 #                - file: beginner/ros/gui
 
-          - file: beginner/first-python-library/index
+          - file: beginner/first-python-library/how-to-create-and-update-a-python-library-in-duckietown
 
-          - file: beginner/code-hierarchy/index
+          - file: beginner/code-hierarchy/duckietown-docker-code-hierarchy-explained
 
           - file: beginner/documentation/index
             sections:

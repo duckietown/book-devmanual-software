@@ -1,3 +1,153 @@
+```{seo}
+:description: Learn how to subscribe to Duckiebot wheel encoder topics using a ROS Subscriber and log encoder ticks in real time.
+:keywords: Duckietown, ROS, Subscriber, wheel encoder, WheelEncoderStamped, robotics, dts code
+```
+
+(ros-sub-wheel-encoders)=
+# Subscribe to wheel encoders
+
+```{needget}
+* A Duckietown robot turned ON and visible on `dts fleet discover`
+---
+* Learn how to receive wheel encoder data from your robot using a **ROS Subscriber**
+```
+
+## Topic and message type of interest
+
+The Duckiebot publishes encoder ticks on the following topics:
+
+- `/ROBOT_NAME/left_wheel_encoder_node/tick`
+- `/ROBOT_NAME/right_wheel_encoder_node/tick`
+
+The message type is **duckietown_msgs/WheelEncoderStamped**, which contains:
+
+```text
+uint8 ENCODER_TYPE_ABSOLUTE=0
+uint8 ENCODER_TYPE_INCREMENTAL=1
+std_msgs/Header header
+int32 data
+uint16 resolution
+uint8 type
+```
+
+- `header`: standard ROS header  
+- `data`: accumulated tick count  
+- `resolution`: ticks per full revolution  
+- `type`: encoder mode (`ENCODER_TYPE_ABSOLUTE` or `ENCODER_TYPE_INCREMENTAL`)  
+
+For example, on the DB21 series robot, `resolution=135` and `type=1` (incremental), meaning there are 135 ticks per revolution.
+
+```{note}
+If the wheels are spun by hand, the tick count only increases. Motor-driven rotation can decrease the counter.
+```
+
+(ros-wheel-encoder-reader-node-create)=
+## Create Subscriber ROS Node
+
+Create `wheel_encoder_reader_node.py` in the `src/` directory of the Catkin package:
+
+```python
+#!/usr/bin/env python3
+
+import os
+import rospy
+from duckietown.dtros import DTROS, NodeType
+from duckietown_msgs.msg import WheelEncoderStamped
+
+class WheelEncoderReaderNode(DTROS):
+
+   def __init__(self, node_name):
+       super(WheelEncoderReaderNode, self).__init__(
+           node_name=node_name,
+           node_type=NodeType.PERCEPTION
+       )
+       self._vehicle_name = os.environ['VEHICLE_NAME']
+       self._left_encoder_topic = f"/{self._vehicle_name}/left_wheel_encoder_node/tick"
+       self._right_encoder_topic = f"/{self._vehicle_name}/right_wheel_encoder_node/tick"
+       self._ticks_left = None
+       self._ticks_right = None
+       self.sub_left = rospy.Subscriber(
+           self._left_encoder_topic,
+           WheelEncoderStamped,
+           self.callback_left
+       )
+       self.sub_right = rospy.Subscriber(
+           self._right_encoder_topic,
+           WheelEncoderStamped,
+           self.callback_right
+       )
+
+   def callback_left(self, data):
+       rospy.loginfo_once(f"Left encoder resolution: {data.resolution}")
+       rospy.loginfo_once(f"Left encoder type: {data.type}")
+       self._ticks_left = data.data
+
+   def callback_right(self, data):
+       rospy.loginfo_once(f"Right encoder resolution: {data.resolution}")
+       rospy.loginfo_once(f"Right encoder type: {data.type}")
+       self._ticks_right = data.data
+
+   def run(self):
+       rate = rospy.Rate(20)
+       while not rospy.is_shutdown():
+           if self._ticks_left is not None and self._ticks_right is not None:
+               msg = (
+                   f"Wheel encoder ticks [LEFT, RIGHT]: "
+                   f"{self._ticks_left}, {self._ticks_right}"
+               )
+               rospy.loginfo(msg)
+           rate.sleep()
+
+if __name__ == '__main__':
+   node = WheelEncoderReaderNode(node_name='wheel_encoder_reader_node')
+   node.run()
+   rospy.spin()
+```
+
+Make it executable:
+
+```bash
+chmod +x ./packages/my_package/src/wheel_encoder_reader_node.py
+```
+
+## Define launcher
+
+Create `launchers/wheel-encoder-reader.sh`:
+
+```shell
+#!/bin/bash
+
+source /environment.sh
+
+dt-launchfile-init
+rosrun my_package wheel_encoder_reader_node.py
+dt-launchfile-join
+```
+
+Rebuild the image:
+
+```bash
+dts devel build -f
+```
+
+## Launch the node
+
+Run the subscriber:
+
+```bash
+dts devel run -R ROBOT_NAME -L wheel-encoder-reader
+```
+
+The encoder `resolution` and `type` will log once. Subsequently, tick counts will appear continuously. Test by spinning the wheels manually or driving the robot.
+
+To stop, press `Ctrl+C`.
+
+```{admonition} Congratulations 🎉
+You just built and ran a ROS node that reads wheel encoder data from the Duckiebot.
+```
+
+
+<!-- Previous version
 (ros-sub-wheel-encoders)=
 # Subscribe to wheel encoders
 
@@ -154,3 +304,4 @@ If you want to stop the node, just use `Ctrl+C` in the terminal.
 ```{admonition} Congratulations 🎉
 You just built and run a ROS node capable of reading information from the wheel encoder sensors on the Duckiebot.
 ```
+-->

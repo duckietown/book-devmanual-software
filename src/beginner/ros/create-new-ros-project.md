@@ -28,8 +28,7 @@ A new repository is created from the template-ros boilerplate. Navigate to the t
 Use template repository on GitHub.
 ```
 
-
-This will take you to a page that looks like the following:
+This will lead to a page that looks like the following:
 
 ```{figure} ../../_images/beginner/ros/create-repo-from-template.png
 :name: ros-create-repo-from-template-1
