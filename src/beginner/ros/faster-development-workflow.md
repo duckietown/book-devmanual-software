@@ -1,3 +1,58 @@
+```{seo}
+:description: Learn tricks for a faster development workflow with DTProjects and `dts`, including running ROS nodes locally or remotely.
+:keywords: Duckietown, DTProject, ROS, development workflow, dts, remote run, local run, optimization
+```
+(dtproject-ros-faster-development)=
+# Faster Development Workflow
+In this section, some tricks for a much faster development workflow using `dts` are presented.
+
+(dtproject-ros-faster-development-trick-run-locally)=
+## Run locally
+
+As demonstrated previously, it is possible to add new code to a DTProject or modify existing code and then build and run either locally or directly on a Duckiebot. While working with ROS, examples so far have executed all nodes on the Duckiebot. 
+
+This is because ROS configures nodes to default to the ROS network on the _local_ machine, and given that the ROS network originates on the Duckiebot, this default configuration can be leveraged by running the nodes directly on the Duckiebot.
+
+However, building and running on the Duckiebot is not optimal for speed, and a responsive development workflow is crucial.
+
+There are two major issues with the current workflow:
+
+1. The source code resides on the local computer, so Docker must transfer it to the Duckiebot to build the image.
+2. The Duckiebot’s on-board computer is too slow to serve as a rapid development testbed.
+
+3. Ideally, it should be possible to build and run ROS nodes on the local computer in a manner transparent to all other ROS nodes. This can be achieved easily with `dts`.
+
+Consider the example in [](ros-sub-node). A block diagram showing the ROS nodes and their location in the network would be as follows:
+
+```{figure} ../../_images/beginner/ros/dts_devel_ros_remote.png
+:name: fig:dts-devel-ros-pub-sub-remote
+:alt: ROS Pub-Sub on Duckiebot remote
+:align: center
+:width: 90%
+Block diagram for a Pub-Sub setup with both nodes running on the Duckiebot.
+```
+
+Now, maintain everything as is for the Publisher and adjust the build and run commands for the Subscriber as follows:
+
+```bash
+dts devel build -f
+dts devel run -R ROBOT_NAME -L my-subscriber
+```
+
+Here, `dts` is instructed to build the project locally (omitting `-H ROBOT_NAME`) and to run the subscriber node locally (omitting `-H ROBOT_NAME`) while connecting it to the Duckiebot’s ROS network using the `--ros` (`-R`) option.
+
+A block diagram showing the new configuration of ROS nodes and their location in the network would be:
+
+```{figure} ../../_images/beginner/ros/dts_devel_ros_local.png
+:name: fig:dts-devel-ros-pub-sub-local
+:alt: ROS Pub-Sub mixed local and remote
+:align: center
+:width: 90%
+Block diagram for a Pub-Sub setup with the Subscriber node running on the local computer.
+```
+
+
+<!--
 (dtproject-ros-faster-development)=
 # Faster Development Workflow
 
@@ -53,4 +108,4 @@ the network would be the following,
 
 Block diagram for a Pub-Sub setup with the Subscriber node running on the local computer.
 ```
-
+-->

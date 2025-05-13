@@ -1,3 +1,137 @@
+
+```{seo}
+:description: Learn how to publish wheel commands to Duckiebot motors using a ROS Publisher and the WheelsCmdStamped message.
+:keywords: Duckietown, ROS, Publisher, wheel control, WheelsCmdStamped, robotics, dts code
+```
+
+(ros-pub-wheels)=
+# Publish to wheels
+
+```{needget}
+* A Duckietown robot turned ON and visible on `dts fleet discover`
+---
+* Learn how to control the Duckiebot’s wheels using a **ROS Publisher**
+```
+
+## Topic and message type of interest
+
+The Duckiebot subscribes to wheel commands on the topic:
+
+```
+/ROBOT_NAME/wheels_driver_node/wheels_cmd
+```
+
+The message type is **duckietown_msgs/WheelsCmdStamped**, with fields:
+
+```text
+std_msgs/Header header
+float32 vel_left
+float32 vel_right
+```
+
+- `header`: standard ROS header  
+- `vel_left`: duty cycle for left wheel (−1.0 backward to 1.0 forward)  
+- `vel_right`: duty cycle for right wheel (−1.0 backward to 1.0 forward)  
+
+```{note}
+These values represent PWM duty cycles, not physical velocities, and may vary across motors.
+```
+
+(ros-wheel-control-node-create)=
+## Create Publisher ROS Node
+
+Create `wheel_control_node.py` in the `src/` directory of the Catkin package:
+
+```python
+#!/usr/bin/env python3
+
+import os
+import rospy
+from duckietown.dtros import DTROS, NodeType
+from duckietown_msgs.msg import WheelsCmdStamped
+
+# throttle and direction for each wheel
+THROTTLE_LEFT = 0.5        # 50% throttle
+DIRECTION_LEFT = 1         # forward
+THROTTLE_RIGHT = 0.3       # 30% throttle
+DIRECTION_RIGHT = -1       # backward
+
+class WheelControlNode(DTROS):
+
+   def __init__(self, node_name):
+       super(WheelControlNode, self).__init__(
+           node_name=node_name,
+           node_type=NodeType.GENERIC
+       )
+       vehicle_name = os.environ['VEHICLE_NAME']
+       wheels_topic = f"/{vehicle_name}/wheels_driver_node/wheels_cmd"
+       self._vel_left = THROTTLE_LEFT * DIRECTION_LEFT
+       self._vel_right = THROTTLE_RIGHT * DIRECTION_RIGHT
+       self._publisher = rospy.Publisher(wheels_topic, WheelsCmdStamped, queue_size=1)
+
+   def run(self):
+       rate = rospy.Rate(0.1)
+       message = WheelsCmdStamped(vel_left=self._vel_left, vel_right=self._vel_right)
+       while not rospy.is_shutdown():
+           self._publisher.publish(message)
+           rate.sleep()
+
+   def on_shutdown(self):
+       stop = WheelsCmdStamped(vel_left=0, vel_right=0)
+       self._publisher.publish(stop)
+
+if __name__ == '__main__':
+   node = WheelControlNode(node_name='wheel_control_node')
+   node.run()
+   rospy.spin()
+```
+
+Make it executable:
+
+```bash
+chmod +x ./packages/my_package/src/wheel_control_node.py
+```
+
+## Define launcher
+
+Create `launchers/wheel-control.sh`:
+
+```shell
+#!/bin/bash
+
+source /environment.sh
+
+dt-launchfile-init
+rosrun my_package wheel_control_node.py
+dt-launchfile-join
+```
+
+Rebuild the image:
+
+```bash
+dts devel build -f
+```
+
+## Launch the node
+
+```{danger}
+The wheels will start spinning immediately. Ensure the robot has enough clear space to avoid accidents.
+```
+
+Run the node:
+
+```bash
+dts devel run -R ROBOT_NAME -L wheel-control
+```
+
+Stop with `Ctrl+C`; `on_shutdown()` will halt the wheels.
+
+```{admonition} Congratulations 🎉
+You just built and ran a ROS node that controls the Duckiebot’s wheels.
+```
+
+
+<!--
 (ros-pub-wheels)=
 # Publish to wheels
 
@@ -133,3 +267,4 @@ defined in the function `on_shutdown()` above.
 You just built and run your first ROS node capable of interacting with the Duckiebot and control one
 of its actuators.
 ```
+-->
