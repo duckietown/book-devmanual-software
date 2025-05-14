@@ -50,10 +50,10 @@ parts:
 
           - file: beginner/code-hierarchy/duckietown-docker-code-hierarchy-explained
 
-          - file: beginner/documentation/index
+          - file: beginner/code-documentation/introduction-to-code-documentation
             sections:
-                - file: beginner/documentation/write
-                - file: beginner/documentation/build
+                - file: beginner/code-documentation/writing-duckietown-code-documentation
+                - file: beginner/code-documentation/building-duckietown-code-documentation
 
     - caption: Intermediate
       maxdepth: 2
