@@ -1,3 +1,76 @@
+```{seo}
+:description: Step-by-step guide to running a Duckietown diagnostics session, transferring logs, and visualising the results on the diagnostics dashboard.
+:keywords: Duckietown diagnostics, system-monitor, resource logging, experiment group, dashboard, Raspberry Pi
+```
+
+(sec:devel_sw_diagnostics_get_started)=
+# Get Started with Diagnostics
+
+```{needget}
+* `dts` installed on your base station and reachable Duckiebot hostname  
+* Access to <https://dashboard.duckietown.org/diagnostics>
+---
+* Run a 60-second diagnostics capture, verify upload, and locate the log online
+```
+
+```{warning}
+This feature is currently unavailable.
+```
+
+## 1 – Run a single-test experiment
+
+Execute a $60s$ capture on robot **\[ROBOT]**:
+
+```bash
+dts diagnostics run -H [ROBOT] -G my_experiment -d 60
+```
+
+Leave the session running until it terminates. A successful run ends with:
+
+````
+...
+INFO:system-monitor:Pushing data to the cloud
+INFO:system-monitor:Pushing to the server [trial 1/3]...
+INFO:system-monitor:The server says: [200] OK
+INFO:system-monitor:Data transferred successfully!
+...
+````
+
+The line `The server says: [200] OK` confirms that the log reached the remote server.  
+If the upload fails, the data are discarded and the test must be repeated.
+
+## Visualize the results
+
+Open <https://dashboard.duckietown.com/diagnostics>.  
+
+Logs are indexed by **Group**, **Subgroup**, and hostname.
+
+```{figure} ../../_images/intermediate/diagnostics/diagnostics_web_dropdown.png
+:width: 100%
+:alt: Selecting diagnostics test on the Duckietown Dashboard
+
+Selecting diagnostics test on dashboard.duckietown.com
+```
+
+*Tip — if no `-S/--subgroup` was supplied, the entry appears under `default`.*
+
+## One experiment, many tests
+When comparing configurations, run several **tests** inside one **experiment** using the `-S/--subgroup` flag.
+
+Example from [](devel_sw_diagnostics_example):
+
+```bash
+# baseline at 20 Hz
+dts diagnostics run -H [ROBOT] -G camera_frequency -S 20hz -d 60
+# pushed to 30 Hz
+dts diagnostics run -H [ROBOT] -G camera_frequency -S 30hz -d 60
+```
+
+On the Diagnostics page, select both `20hz` and `30hz` subgroups under *Group = camera_frequency* and compare the plots across the **System**, **Resources**, and other tabs.
+
+
+
+<!--
 (sec:devel_sw_diagnostics_get_started)=
 # Get Started
 
@@ -102,3 +175,4 @@ Similarly to what we have done in [](devel_sw_diagnostics_dashboard_logs_tag),
 we will use the dropdown buttons to select our tests and add them to the
 list. Once we have both on the list, we can move to the other tabs to
 see how the results of the two tests compare.
+-->

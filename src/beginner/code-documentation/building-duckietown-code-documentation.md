@@ -6,12 +6,12 @@
 # Building code documentation
 
 ```{needget}
-* [Book‑Writer manual](book-opmanual-docs:duckumentation-intro)
+* [Book‑Writer manual](book-devmanual-docs:book-devmanual-intro)
 ---
 * Ability to build and preview a Jupyter Book for your project
 ```
 
-Duckietown projects ship with a ready‑to‑use Jupyter Book skeleton under **`/docs/src`**. Refer to the [Book Writer Manual](book-opmanual-docs:duckumentation-intro) for details on the supported features and a syntax cheat sheet.
+Duckietown projects ship with a ready‑to‑use Jupyter Book skeleton under **`/docs/src`**. Refer to the [Book Writer Manual](book-devmanual-docs:book-devmanual-intro) for details on the supported features and a syntax cheat sheet.
 
 
 ## Quick build command
@@ -27,7 +27,7 @@ dts docs build
 
 ## Mixing reStructuredText inside Markdown
 
-MyST supports the [`{eval-rst}` directive](myst-parser:syntax/directives/parsing), enabling adding raw rST blocks in a `.md` file — useful when requiring constructs that Markdown lacks.
+MyST supports the [`{eval-rst}` directive](https://myst-parser.readthedocs.io/en/latest/syntax/roles-and-directives.html), enabling adding raw rST blocks in a `.md` file — useful when requiring constructs that Markdown lacks.
 
 ````md
 ```{eval-rst}

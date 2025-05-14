@@ -1,3 +1,58 @@
+```{seo}
+:description: Understand when and why to use the Duckietown Diagnostics tool, distinguishing steady-state and transient-state measurements to evaluate resource usage on a Duckiebot.
+:keywords: Duckietown diagnostics, performance profiling, steady state, transient state, Raspberry Pi monitoring, resource footprint
+```
+
+(sec:sw_diagnostics_intro)=
+# Introduction to the Diagnostics Tool
+
+```{needget}
+* Ability to launch and modify ROS nodes on a Duckiebot  
+* Basic familiarity with Raspberry Pi or Jetson Nano resource constraints
+---
+* Decide whether to run a steady-state or transient-state diagnostic session  
+* Interpret the resulting resource-usage traces
+```
+
+The *Duckietown Diagnostics* utility periodically records CPU, memory, temperature, I/O, and network metrics while an experiment is running. By replaying these snapshots, you can verify that new code respects the onboard computer tight resource budget and does not introduce hidden side effects.
+
+(devel_sw_diagnostics_example)=
+## Running example
+
+Assume a **single-camera Duckiebot** whose driver publishes frames at **20 Hz**. We plan to raise the rate to **30 Hz** and must quantify how this change impacts resource usage.
+
+---
+
+## Why should diagnostics be run?
+
+Execute the tool **each time you modify code** and need to gauge its footprint on system resources.
+
+*Expected consequences*  
+- Higher frame rate → more CPU time, RAM, and bus bandwidth  
+- Possible *secondary* effects: increased SoC temperature, extra network traffic if frames are forwarded downstream
+
+Diagnostics offers a repeatable method for measuring and analyzing these effects.
+
+---
+
+## Steady-state and transient-state sessions
+
+The tool supports two common scenarios:
+
+| Scenario | Purpose | When to launch / how long to run |
+|----------|---------|----------------------------------|
+| **Steady-state analysis** | Detect slow drifts such as memory leaks | Start *after* the system settles; record for an extended interval |
+| **Transient-state analysis** | Observe short bursts triggered by an event | Start anytime; record for *t* > *T* to include at least one event cycle |
+
+### Example – tuning camera FPS
+* **Steady state**: run diagnostics overnight and inspect RAM usage to reveal leaks at 30 Hz.  
+* **Transient state**: capture several seconds around a frame-grab burst to confirm CPU spikes remain acceptable.
+
+By selecting the appropriate window, actionable insight can be obtained without overwhelming the storage with unnecessary data.
+
+
+
+<!--
 (sec:sw_diagnostics_intro)=
 # Introduction
 
@@ -60,3 +115,4 @@ values of `T`.
 In this case, we would run the diagnostics tool at any point in time for a 
 duration of `t > T` seconds so that at least one event of interest (e.g., ICP event) 
 is captured.
+-->

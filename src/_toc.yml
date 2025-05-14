@@ -59,10 +59,10 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: intermediate/dtros/index
+          - file: intermediate/dtros/duckietown-dtros-class
           - file: intermediate/diagnostics/index
             sections:
-              - file: intermediate/diagnostics/intro
-              - file: intermediate/diagnostics/get-started
-              - file: intermediate/diagnostics/reference
-          - file: intermediate/simulation/index
+              - file: intermediate/diagnostics/introduction-to-duckietown-diagnostic-tool
+              - file: intermediate/diagnostics/get-started-with-duckietown-diagnostic-tool
+              - file: intermediate/diagnostics/diagnostics-tool-command-reference
+          - file: intermediate/simulation/gym-simulation-in-duckietown
