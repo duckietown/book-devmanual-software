@@ -1,13 +1,18 @@
-(duckietown-simulation)=
-# Simulation in Duckietown
-
-```{needget}
-* [Implementing Basic Robot Behaviors](#part:basic-robot-behavior)
---- 
-* Results: Experience with running and testing on the Duckietown simulator 
+```{seo}
+:description: Understand why and how to use gym-duckietown, set it up quickly, drive the simulator, and customise maps, actions, and rewards.
+:keywords: Duckietown simulator, gym-duckietown, robotics simulation, domain randomisation, reinforcement learning, Python OpenGL
 ```
 
-```{figure} ../../_images/simplesim_free.png
+(duckietown-simulation)=
+# Gym-Simulation in Duckietown
+
+```{needget}
+* Implementing Basic Robot Behaviors
+--- 
+* Experience with running and testing on the Duckietown simulator 
+```
+
+```{figure} ../../_images/intermediate/simulator/simplesim_free.png
 :name: fig:simplesim_free
 
 ```
@@ -23,7 +28,7 @@ Daphne is an avid Duckietowner who loves Duckies. In her mission to "save the Du
 
 Daphne also found that having to charge the battery of her robot, set up her Duckietown loop, place her Duckiebot on the loop, connect to it, and run the part of the pipeline that had to be tested every time she or someone in her team wanted to merge new changes into the codebase was extremely time-consuming.
 
-Moreover, Daphne and her real Duckiebot only have access to a small Duckietown loop. However she wants to ensure that her algorithms work in the most complicated and busy environments of Duckietown.
+Moreover, Daphne and her real Duckiebot only have access to a small Duckietown loop. However, she wants to ensure that her algorithms work in the most complicated and busy environments of Duckietown.
 
 All of the above were compelling reasons for Daphne to start looking at full-stack simulators that would allow her to simultaneously address the shortcomings of unit testing, the inconvenience of manual testing, and the ability to test scenarios that are not possible or too risky in real life. 
 
@@ -31,17 +36,17 @@ Luckily, she found just the right thing at the [Duckietown gym](https://github.c
 
 Daphne's story is the story of every autonomous driving company, whose mission is instead to "save the humans" and which cannot afford to make mistakes on the real roads, and which requires automated integration testing tools that can be run faster-than-real-time under challenging conditions. As an example, Waymo has driven around 20 million miles on real roads, but around 15 billion miles in simulation!
 
-## Introduction to the Duckietown Simulator
+## Introduction to the Gym-Duckietown Simulator
 
-Gym-Duckietown is a simulator for the [Duckietown](https://duckietown.org) universe, 
+Gym-Duckietown is a simulator for the [Duckietown](https://duckietown.com) universe, 
 written in pure Python/OpenGL (Pyglet). It places your agent, a Duckiebot, 
 inside an instance of a Duckietown: a loop of roads with turns, 
 intersections, obstacles, Duckie pedestrians, and other Duckiebots.
 
-Gym-Duckietown is fast, open, and incredibly customizable. What started as a lane-following simulator has evolved into a fully-functioning autonomous driving simulator that you can use to train and test your Machine Learning, Reinforcement Learning, Imitation Learning, or even classical robotics algorithms. Gym-Duckietown offers a wide range of tasks, from simple lane-following to full city navigation with dynamic obstacles. Gym-Duckietown also ships with features, wrappers, and tools that 
+Gym-Duckietown is fast, open, and very customizable. What started as a lane-following simulator has evolved into a fully functioning autonomous driving simulator that you can use to train and test your Machine Learning, Reinforcement Learning, Imitation Learning, or even classical robotics algorithms. Gym-Duckietown offers a wide range of tasks, from simple lane-following to full city navigation with dynamic obstacles. Gym-Duckietown also ships with features, wrappers, and tools that 
 can help you bring your algorithms to the real robot, including [domain-randomization](https://blog.openai.com/spam-detection-in-the-physical-world/), accurate camera distortion, and differential-drive physics (and most importantly, realistic waddling).
 
-```{figure} ../../_images/finalmain.gif
+```{figure} ../../_images/intermediate/simulator/finalmain.gif
 :name: fig:finalmain-sim
 
 ```
@@ -49,12 +54,10 @@ can help you bring your algorithms to the real robot, including [domain-randomiz
 (simulator_quickstart)=
 ## Quickstart Guide
 
-To run a minimal demo of the simulator, you simply need a (virtual) environment 
-with the gym_duckietown pip3 package installed.
+To run a minimal demo of the simulator, you need a (virtual) environment with the gym_duckietown pip3 package installed.
 
 To set up such an environment, the safest way is to run the following 
-(you could also skip the virtual environment but you may have clashing packages 
-installed):
+(you could also skip the virtual environment but you may have clashing packages installed):
 
     $ cd ~ && virtualenv dt-sim
     $ source dt-sim/bin/activate
@@ -64,8 +67,7 @@ installed):
 reference to daffy library above
 ```
 
-Now you need to create a simple Python script with uses the gym-duckietown API 
-to connect to the simulator, the API is very simple as you will see.
+Now you need to create a simple Python script with uses the gym-duckietown API to connect to the simulator.
 
 Create and run the following file, from within the environment you have set up above:
 
@@ -149,13 +151,12 @@ different scenarios will make for a more robust policy/model.
 `gym-duckietown` is an _accompanying_ simulator to real Duckiebots, 
 which allow you to run your code on the real robot. 
 We provide a domain randomization API, which can help you transfer your 
-trained policies from simulation to real world. Without using a domain transfer 
+trained policies from simulation to the real world. Without using a domain transfer 
 method, your learned models will likely overfit to various aspects of the simulator, 
-which won't transfer to the real world. When you deploy, you and your 
-Duckiebot will be running around in circles trying to figure out what's going on.
+which will not transfer to the real world. 
 
 
-```{figure} ../../_images/domainrand-sim.gif
+```{figure} ../../_images/intermediate/simulator/domainrand-sim.gif
 :name: fig:domainrand-sim
 
 ```
@@ -167,7 +168,7 @@ We have covered the basic installation in the [quickstart guide](simulator_quick
 
 ### Alternative Installation Instructions (Alternative Method)
 
-Alternatively, you can find further installation instructions [here](https://github.com/duckietown/gym-duckietown.git)
+Alternatively, you can find further installation instructions [on the Duckietown GitHub Gym-Duckietown repo](https://github.com/duckietown/gym-duckietown.git)
 
 ### Docker Image
 
@@ -187,11 +188,7 @@ See the [maps subdirectory](https://github.com/duckietown/gym-duckietown/blob/ma
 for examples. Each map file has two main sections: a two-dimensional array of tiles, 
 and a listing of objects to be placed around the map. 
 The tiles are based on the 
-[Duckietown appearance specification](https://docs-old.duckietown.org/daffy/opmanual_duckietown/out/duckietown_specs.html).
-
-```{todo}
-absolute URL here
-```
+[Duckietown appearance specification](book-opmanual-duckietown:duckietown-app-specs-intro).
 
 The available tile types are:
 
@@ -217,7 +214,7 @@ The available object types are:
 * truck (delivery-style truck)
 * bus
 * building (multi-floor building)
-* sign_stop, sign_T_intersect, sign_yield, etc. (see [meshes subdirectory](https://github.com/duckietown/gym-duckietown/blob/master/gym_duckietown/meshes) )
+* sign_stop, sign_T_intersect, sign_yield, etc. (see [meshes subdirectory](https://github.com/duckietown/gym-duckietown/blob/master/gym_duckietown/meshes))
 
 Although the environment is rendered in 3D, the map is essentially two-dimensional. As such, object coordinates are specified along two axes. The coordinates are rescaled based on the tile size, such that coordinates [0.5, 1.5] would mean the middle of the first column of tiles, the middle of the second row. Objects can have an `optional` flag set, which means that they randomly may or may not appear during training, as a form of domain randomization.
 
@@ -303,7 +300,7 @@ export DISPLAY=:&#36;SLURM_JOB_ID
 
 ## Troubleshooting
 
-If you run into problems of any kind, don't hesitate to [open an issue](https://github.com/duckietown/gym-duckietown/issues) on this repository. It's quite possible that you've run into some bug we aren't aware of. Please make sure to give some details about your system configuration (ie: PC or Max, operating system), and to paste the command you used to run the simulator, as well as the complete error message that was produced, if any.
+If you run into problems of any kind, do not hesitate to [reach out](https://duckietown.com/contact/). Please make sure to provide details about your system configuration (i.e., operating system,  computer architecture, link to instructions, inputs and output error codes).
 
 
 ```{trouble}
@@ -353,18 +350,4 @@ The libx264 error is due to a problem with the way `ffmpeg` is installed on some
 
 Alternatively, screencasting programs such as [Kazam](https://launchpad.net/kazam) can be used to record the graphical output of a single window.
 
-```
-
-## How to cite
-Please use this BibTeX if you want to cite this repository in your publications:
-
-```
-@misc{gym_duckietown,
-  author = {Chevalier-Boisvert, Maxime and Golemo, Florian and Cao, Yanjun and Mehta, Bhairav and Censi, Andrea and Paull, Liam},
-  title = {Duckietown Environments for OpenAI Gym},
-  year = {2018},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/duckietown/gym-duckietown}},
-}
 ```
